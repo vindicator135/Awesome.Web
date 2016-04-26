@@ -1,0 +1,54 @@
+﻿<div>Discussions list</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-2">Add Discussion</div>
+		<div class="col-sm-3"><input type="text" ng-model="content" /><input type="button" ng-click="send(content)" value="Add" /></div>
+		
+	</div>
+	<div class="row">
+		<div class="col-sm-1">
+			<h3>Search</h3>
+		</div>
+		<div class="col-sm-11">
+			<input type="text" class="input-lg" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>Recent and Ongoing</h1>
+			</div>
+		</div>
+		<div class="row" ng-repeat="discussion in discussions.recentDiscussions">
+			<h2>{{discussion.Content}}</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>Highest Rated</h1>
+			</div>
+		</div>
+		<div class="row" ng-repeat="discussion in discussions.ratedDiscussions">
+			<h2>{{discussion.Content}}</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>All Discussions</h1>
+			</div>
+		</div>
+		<div class="row" ng-repeat="discussion in discussions.allDiscussions">
+			<h2>{{discussion.Content}}</h2>
+		</div>
+	</div>
+	
+	<!--<div class="row"></div>
+	<div class="row"></div>
+	{{message}}
+	<ul>
+		<li ng-repeat="discussion in discussions.recentDiscussions">{{discussion.Content}}</li>
+	</ul>-->
+	
+</div>
