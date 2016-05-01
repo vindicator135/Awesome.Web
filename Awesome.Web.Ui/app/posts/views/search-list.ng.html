@@ -1,0 +1,11 @@
+﻿<!-- content  -->
+<div class="col-md-8 col-sm-8" ng-repeat="post in posts track by post.postId">
+	<!-- post title  -->
+	<div ng-bind-html="post.title"></div>
+	<!-- end post title  -->
+	<!-- post date and categories  -->
+	<div ng-bind-html="post.subTitle"></div>
+	<!-- end date and categories   -->
+	<div ng-bing-html="post.subContent"></div>
+</div>
+<!-- end content  -->
