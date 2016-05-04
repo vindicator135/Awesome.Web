@@ -7,7 +7,9 @@
 		},
 		templateUrl: 'app/posts/post-comments/post-comment-list.ng.html',
 		link: function (scope, elem, attrs) {
-			scope.comments = commentServices.getCommentsByPostId(scope.postId);
+			var details = commentServices.getCommentsByPostId(scope.postId); 
+			scope.comments = details.comments;
+			scope.title = details.title;
 		}
 	}
 });

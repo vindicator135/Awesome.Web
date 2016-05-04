@@ -6,9 +6,8 @@
 	<!-- post date and categories  -->
 	<div ng-bind-html="currentPost.subTitle"></div>
 	<!-- end date and categories   -->
-	<!-- post image -->
-	<div class="blog-image margin-eight"><img src="http://placehold.it/1920x1200" alt=""></div>
-	<!-- end post image -->
+	<div ng-bind-html="currentPost.preContent"></div>
+	
 	<!-- post details text -->
 	<div class="blog-details-text">
 		<div ng-bind-html="currentPost.content"></div>
@@ -47,7 +46,7 @@
 	</div>
 	<!-- end social icon -->
 	<!-- post comment -->
-	<post-comments-list postId="currentPost.postId">
+	<post-comments-list post-id="{{currentPost.postId}}">
 	</post-comments-list>
 </div>
 <!-- end content  -->

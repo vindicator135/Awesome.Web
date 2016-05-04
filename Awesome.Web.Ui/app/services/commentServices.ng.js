@@ -13,12 +13,20 @@
 			return mockComments;
 		},
 		addComment: function (comment) {
-			postServices.addComment(comment);
+			mockComments.push(comment);
 		},
 		getCommentsByPostId: function (postId) {
-			return _.filter(mockComments, function (c) {
+			var details = { postId: postId };
+
+			details.comments =  _.filter(mockComments, function (c) {
 				return c.postId == postId;
 			});
+
+			if (details.comments.length > 0) {
+				details.title = details.comments[0].title;
+			}
+
+			return details;
 		}
 	};
 
