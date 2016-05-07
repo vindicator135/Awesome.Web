@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Awesome.Web.Api.Models.Request
 {
-	public class DiscussionUpdateRequest
+	public class PostUpdateRequest
 	{
-		public Guid DiscussionId { get; set; }
+		public Guid PostId { get; set; }
 
 		public string Content { get; set; }
 

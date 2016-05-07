@@ -2,30 +2,27 @@
 using Awesome.Web.Api.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace Awesome.Web.Api.Services
 {
-	public class TagsService : ITagsService
+	public class TagsService : BaseService, ITagsService
 	{
-		private AwesomeEntities _context;
-
-		public TagsService(AwesomeEntities context)
+		public TagsService(IDbContextFactory<AwesomeEntities> factory) : base(factory)
 		{
-			this._context = context;		
 		}
 
-		public async Task<List<TagItem>> GetDiscussionTags(Guid discussionId)
+		public async Task<List<TagItem>> GetPostTags(Guid postId)
 		{
 			var result = new List<TagItem>();
 
-			var discussionTags = _context.Discussions.Include("Tags").FirstOrDefault(d => d.DiscussionId == discussionId);
+			var postTags = factory.Create().Posts.Include("Tags").FirstOrDefault(d => d.PostId == postId);
 
-			if (discussionTags != null && discussionTags.Tags != null)
+			if (postTags != null && postTags.Tags != null)
 			{
-				foreach(var t in discussionTags.Tags.ToList())
+				foreach (var t in postTags.Tags.ToList())
 				{
 					var tagItem = new TagItem
 					{
@@ -42,7 +39,7 @@ namespace Awesome.Web.Api.Services
 		{
 			List<Tag> results = null;
 
-			var matchedTags = _context.Tags.Where(t => tags.Contains(t.TagId)).Select(t => t);
+			var matchedTags = factory.Create().Tags.Where(t => tags.Contains(t.TagId)).Select(t => t);
 
 			if (matchedTags.Any())
 			{

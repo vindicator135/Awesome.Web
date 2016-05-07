@@ -31,7 +31,7 @@ namespace Awesome.Entities
 			base.OnModelCreating(modelBuilder);
 		}
 
-		public DbSet<Discussion> Discussions { get; set; }
+		public DbSet<Post> Posts { get; set; }
 
 		public DbSet<Comment> Comments { get; set; }
 

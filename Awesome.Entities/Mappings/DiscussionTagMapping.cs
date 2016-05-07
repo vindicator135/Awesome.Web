@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Awesome.Entities.Mappings
 {
-	public class DiscussionTagMapping : EntityTypeConfiguration<Discussion>
+	public class DiscussionTagMapping : EntityTypeConfiguration<Post>
 	{
 		public DiscussionTagMapping()
 		{

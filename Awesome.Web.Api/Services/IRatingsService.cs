@@ -8,6 +8,6 @@ namespace Awesome.Web.Api.Services
 {
 	public interface IRatingsService
 	{
-		Task<double> GetDiscussionAvarageRating(Guid discussionId);
+		Task<double> GetPostAvarageRating(Guid postId);
 	}
 }

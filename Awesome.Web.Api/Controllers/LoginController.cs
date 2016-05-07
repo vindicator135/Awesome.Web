@@ -10,7 +10,7 @@ using System.Web.Http.Cors;
 
 namespace Awesome.Web.Api.Controllers
 {
-	[EnableCors(origins: "http://localhost:63290", headers: "*", methods: "*")]
+	[EnableCors(origins: "http://localhost:1999", headers: "*", methods: "*")]
 	public class LoginController : ApiController
 	{
 		private IAuthorizationService _authService;

@@ -11,14 +11,14 @@ namespace Awesome.Web.Api.Services
 	public interface IDiscussionsService
 	{
 
-		Task<List<DiscussionItem>> SearchDiscussions(string search);
+		Task<List<PostItem>> SearchDiscussions(string search);
 
-		Task<List<DiscussionItem>> SearchDiscussions(DiscussionSearchRequest request);
+		Task<List<PostItem>> SearchDiscussions(PostSearchRequest request);
 
-		Task<object> AddDiscussion(DiscussionUpdateRequest request);
+		Task<object> AddPost(PostUpdateRequest request);
 
 		Task<object> RemoveDiscussion(Guid discussionId);
 
-		Task<object> EditDiscussion(DiscussionUpdateRequest request);
+		Task<object> EditDiscussion(PostUpdateRequest request);
 	}
 }

@@ -5,10 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Awesome.Entities
 {
-	public class Discussion : BaseEntity
+	public class Post : BaseEntity
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public Guid DiscussionId { get; set; }
+		public Guid PostId { get; set; }
 
 		public string Content { get; set; }
 

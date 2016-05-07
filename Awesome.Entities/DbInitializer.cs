@@ -35,7 +35,7 @@ namespace Awesome.Entities
 
 			context.Tags.Add(tag3);
 
-			var discussion1 = new Discussion
+			var discussion1 = new Post
 			{
 
 				Comments = new List<Comment> { new Comment { Content = "Yeah, why not?", Created = DateTime.Now, CreatedBy = userId } },
@@ -45,7 +45,7 @@ namespace Awesome.Entities
 				Tags = new List<Tag> { tag1, tag2, tag3 }
 			};
 
-			context.Discussions.Add(discussion1);
+			context.Posts.Add(discussion1);
 
 			context.SaveChanges();
 		}

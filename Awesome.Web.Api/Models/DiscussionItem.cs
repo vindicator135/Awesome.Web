@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace Awesome.Web.Api.Models
 {
-	public class DiscussionItem
+	public class PostItem
 	{
-		public DiscussionItem()
+		public PostItem()
 		{
 			this.Comments = new List<CommentItem>();
 
 			this.Tags = new List<TagItem>();
 		}
 
-		public Guid DiscussionId { get; set; }
+		public Guid PostId { get; set; }
 
 		public string Content { get; set; }
 

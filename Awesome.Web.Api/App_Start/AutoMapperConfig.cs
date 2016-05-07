@@ -12,7 +12,7 @@ namespace Awesome.Web.Api
 	{
 		public static void Configure()
 		{
-			Mapper.CreateMap<Discussion, DiscussionItem>();
+			Mapper.CreateMap<Post, PostItem>();
 			//Mapper.CreateMap<DiscussionItem, Discussion>();
 
 			Mapper.CreateMap<Comment, CommentItem>();

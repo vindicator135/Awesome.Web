@@ -1,26 +1,24 @@
 ﻿using Awesome.Entities;
-using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Awesome.Web.Api.Services
 {
-	public class AuthorizationService : IAuthorizationService
+	public class AuthorizationService : BaseService, IAuthorizationService
 	{
-		private AwesomeEntities _context;
-
-		public AuthorizationService(AwesomeEntities context)
+		public AuthorizationService(IDbContextFactory<AwesomeEntities> factory) : base(factory)
 		{
-			this._context = context;
+			this.factory = factory;
 		}
 
 		public Task<bool> Login(string userName, string password)
 		{
-			using (var context = this._context)
+			using (var context = this.factory.Create())
 			{
-				var result = context.Users.Select(u => u.UserName == userName && u.Password == password).FirstOrDefault();
+				var result = context.Users.Where(u => u.UserName == userName && u.Password == password).Select(u => u).FirstOrDefault();
 
-				return Task.FromResult<bool>(result);
+				return Task.FromResult<bool>(result != null);
 			}
 		}
 	}

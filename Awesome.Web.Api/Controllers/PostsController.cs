@@ -13,12 +13,12 @@ using Awesome.Web.Api.Models.Request;
 
 namespace Awesome.Web.Api.Controllers
 {
-	[EnableCors(origins: "http://localhost:63290", headers: "*", methods: "*")]
-	public class DiscussionsController : ApiController
+	[EnableCors(origins: "http://localhost:1999", headers: "*", methods: "*")]
+	public class PostsController : ApiController
 	{
 		private IDiscussionsService _discussionService;
 
-		public DiscussionsController(IDiscussionsService discussionService)
+		public PostsController(IDiscussionsService discussionService)
 		{
 			this._discussionService = discussionService;
 		}
@@ -27,7 +27,7 @@ namespace Awesome.Web.Api.Controllers
 		[Route("api/discussion/{discussionId}")]
 		public async Task<IHttpActionResult> FindDiscussionById(Guid discussionId)
 		{
-			var result = await _discussionService.SearchDiscussions(new DiscussionSearchRequest { DiscussionId = discussionId });
+			var result = await _discussionService.SearchDiscussions(new PostSearchRequest { DiscussionId = discussionId });
 
 			return ResponseMessage(AwesomeHelper.Content(result));
 		}
@@ -43,16 +43,16 @@ namespace Awesome.Web.Api.Controllers
 
 		[HttpPost]
 		[Route("api/discussion")]
-		public async Task<IHttpActionResult> AddDiscussion([FromBody] DiscussionUpdateRequest request)
+		public async Task<IHttpActionResult> AddDiscussion([FromBody] PostUpdateRequest request)
 		{
-			var result = await _discussionService.AddDiscussion(request);
+			var result = await _discussionService.AddPost(request);
 
 			return ResponseMessage(AwesomeHelper.Content(result));
 		}
 
 		[HttpPut]
 		[Route("api/discussion/{discussionId}")]
-		public async Task<IHttpActionResult> EditDiscussion([FromBody] DiscussionUpdateRequest request, Guid discussionId)
+		public async Task<IHttpActionResult> EditDiscussion([FromBody] PostUpdateRequest request, Guid discussionId)
 		{
 			var result = await _discussionService.EditDiscussion(request);
 

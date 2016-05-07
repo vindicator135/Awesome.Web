@@ -1,31 +1,26 @@
 ﻿using Awesome.Entities;
 using System;
-using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace Awesome.Web.Api.Services
 {
-	public class RatingsService : IRatingsService
+	public class RatingsService : BaseService, IRatingsService
 	{
-		private AwesomeEntities _context;
-
-		public RatingsService(AwesomeEntities context)
+		public RatingsService(IDbContextFactory<AwesomeEntities> factory) : base(factory)
 		{
-			this._context = context;
 		}
 
-		public async Task<double> GetDiscussionAvarageRating(Guid discussionId)
+		public async Task<double> GetPostAvarageRating(Guid postId)
 		{
 			var rating = 0.0;
 
-			var discussion = this._context.Discussions.Include("Ratings").FirstOrDefault(d => d.DiscussionId == discussionId);
+			var post = factory.Create().Posts.Include("Ratings").FirstOrDefault(d => d.PostId == postId);
 
-			if (discussion != null && discussion.Ratings != null && discussion.Ratings.Count() > 0)
+			if (post != null && post.Ratings != null && post.Ratings.Count() > 0)
 			{
-				rating = discussion.Ratings.Average(x => x.Score);
-
+				rating = post.Ratings.Average(x => x.Score);
 			}
 			return rating;
 		}

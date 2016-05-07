@@ -20,7 +20,15 @@
 	  	url: '/tags/{tagId}',
 	  	templateUrl: 'app/posts/views/search-list.ng.html',
 		controller: 'SearchPostsCtrl'
-	  });
+	  })
+	  .state('book', {
+	  	url: '/book',
+	  	templateUrl: 'app/book/views/book-main.ng.html'})
+	  .state('book.countdown', {
+	  	url: '/comingsoon',
+	  	templateUrl: 'app/book/views/coming-soon.ng.html'
+	  })
+	;
 
 	$urlRouterProvider
 		.otherwise("/");

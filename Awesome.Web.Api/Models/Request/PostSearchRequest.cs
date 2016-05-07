@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Awesome.Web.Api.Models.Request
 {
-	public class DiscussionSearchRequest
+	public class PostSearchRequest
 	{
 		public Guid DiscussionId { get; set; }
 		public int Grouping { get; set; }

@@ -16,6 +16,6 @@ namespace Awesome.Entities
 
 		public string Description { get; set; }
 
-		public virtual ICollection<Discussion> Discussions { get; set; }
+		public virtual ICollection<Post> Discussions { get; set; }
 	}
 }

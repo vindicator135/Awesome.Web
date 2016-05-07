@@ -1,21 +1,16 @@
 ﻿using Awesome.Entities;
 using Awesome.Web.Api.Models;
 using System;
-using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace Awesome.Web.Api.Services
 {
-	public class UsersService : IUsersService
+	public class UsersService : BaseService, IUsersService
 	{
-		private AwesomeEntities _context;
-
-		public UsersService(AwesomeEntities context)
+		public UsersService(IDbContextFactory<AwesomeEntities> factory) : base(factory)
 		{
-			this._context = context;
-
 		}
 
 		public string GetUserName(Guid? userId)
@@ -31,7 +26,7 @@ namespace Awesome.Web.Api.Services
 
 			if (userId.HasValue)
 			{
-				var user = await this._context.Get<User>().FindAsync(userId.Value);
+				var user = await factory.Create().Get<User>().FindAsync(userId.Value);
 
 				userItem = new UserItem()
 				{
@@ -48,7 +43,7 @@ namespace Awesome.Web.Api.Services
 
 			if (userId.HasValue)
 			{
-				var user = this._context.Get<User>().Include("UserProfile").FirstOrDefault(u => u.UserId == userId.Value);
+				var user = factory.Create().Get<User>().Include("UserProfile").FirstOrDefault(u => u.UserId == userId.Value);
 
 				if (user != null && user.UserProfile != null)
 				{
@@ -58,12 +53,10 @@ namespace Awesome.Web.Api.Services
 						AvatarUrl = user.UserProfile.AvatarUrl
 					};
 				}
-				
 			}
 
 			return profileItem;
 		}
-
 
 		public string GetUserAvatarUrl(Guid userId)
 		{

@@ -51,7 +51,7 @@
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\CommentNode.cs" />
-    <Compile Include="Entities\Discussion.cs" />
+    <Compile Include="Entities\Post.cs" />
     <Compile Include="Entities\Rating.cs" />
     <Compile Include="Entities\Tag.cs" />
     <Compile Include="Entities\User.cs" />
