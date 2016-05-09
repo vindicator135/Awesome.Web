@@ -7,7 +7,7 @@ namespace Awesome.Web.Api.Models.Request
 {
 	public class PostSearchRequest
 	{
-		public Guid DiscussionId { get; set; }
+		public Guid PostId { get; set; }
 		public int Grouping { get; set; }
 
 		public string Search { get; set; }

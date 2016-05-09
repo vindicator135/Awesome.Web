@@ -11,10 +11,10 @@ namespace Awesome.Web.Api.Models.Request
 
 		public string Content { get; set; }
 
-		public List<Guid> Tags { get; set; }
+		public List<int> Tags { get; set; }
 
-		public Guid CreatedBy { get; set; }
+		public string LastUpdatedByUserName { get; set; }
 
-		public Guid LastUpdatedBy { get; set; }
+		public string CreatedByUserName { get; internal set; }
 	}
 }

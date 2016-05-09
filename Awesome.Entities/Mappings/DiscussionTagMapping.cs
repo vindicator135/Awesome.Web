@@ -12,11 +12,11 @@ namespace Awesome.Entities.Mappings
 		public DiscussionTagMapping()
 		{
 			HasMany(d => d.Tags)
-				.WithMany(t => t.Discussions)
+				.WithMany(t => t.Posts)
 				.Map(dt => {
-					dt.MapLeftKey("DiscussionId");
+					dt.MapLeftKey("PostId");
 					dt.MapRightKey("TagId");
-					dt.ToTable("DiscussionTags");
+					dt.ToTable("PostTags");
 				});
 		}
 	}

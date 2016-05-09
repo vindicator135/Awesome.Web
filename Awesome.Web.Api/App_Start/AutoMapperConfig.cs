@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Awesome.Entities;
+using Awesome.Entities.Entities;
 using Awesome.Web.Api.Models;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace Awesome.Web.Api
 			Mapper.CreateMap<Tag, TagItem>();
 			//Mapper.CreateMap<TagItem, Tag>();
 
-			Mapper.CreateMap<User, UserItem>();
+			Mapper.CreateMap<ApplicationUser, UserItem>();
 			//Mapper.CreateMap<UserItem, User>();
 		}
 	}

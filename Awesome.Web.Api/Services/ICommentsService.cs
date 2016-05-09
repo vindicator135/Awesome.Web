@@ -10,6 +10,6 @@ namespace Awesome.Web.Api.Services
 	public interface ICommentsService
 	{
 
-		Task<List<CommentItem>> GetComments(Guid guid, int p);
+		Task<List<CommentItem>> GetComments(Guid postId, int numberOfMaxRecords);
 	}
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.ModelConfiguration;
+using Awesome.Entities.Entities;
 
 namespace Awesome.Entities.Mappings
 {
@@ -11,11 +12,11 @@ namespace Awesome.Entities.Mappings
 	/// Comments are self-referencing entities based on -
 	///		http://stackoverflow.com/questions/11565423/most-efficient-method-of-self-referencing-tree-using-entity-framework
 	/// </summary>
-	public class UserMapping : EntityTypeConfiguration<User>
+	public class ApplicationUserMapping : EntityTypeConfiguration<ApplicationUser>
 	{
-		public UserMapping()
+		public ApplicationUserMapping()
 		{
-			HasOptional(d => d.UserProfile).WithOptionalDependent().Map(m => m.MapKey("UserProfileId"));
+			ToTable("Users");
 		}
 	}
 }

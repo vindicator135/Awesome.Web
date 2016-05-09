@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Awesome.Entities.Entities;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 
@@ -16,36 +18,36 @@ namespace Awesome.Entities
 	{
 		public static void Seed(AwesomeEntities context)
 		{
-			
-			var userId = new Guid("2C42BA71-183B-43EA-8A56-06CD16433F0C");
 
-			context.Users.Add(new User { UserId = userId, UserName = "Stephen", Password = "unknown_1" });
+			var user = new ApplicationUser { UserName = "vindicator135@gmail.com", Email = "vindicator135@gmail.com" };
 
-			var tagId1 = new Guid("EEA069E8-38D6-E511-8325-54271E914DCC");
+			var userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
 
-			var tag1 = new Tag { TagId = tagId1, CreatedBy = userId, Created = DateTime.Now, Description = "United States of America", Name = "US" };
+			var userResult = userManager.CreateAsync(user, "unknown_1").Result;
+
+			context.SaveChanges();
+
+			var tag1 = new Tag { TagId = 1, Created = DateTime.Now, Description = "United States of America", Name = "US" };
 			context.Tags.Add(tag1);
 
-			var tagId2 = new Guid("EFA069E8-38D6-E511-8325-54271E914DCC");
-			var tag2 = new Tag { TagId = tagId2, CreatedBy = userId, Created = DateTime.Now, Description = "Canada", Name = "CA" };
+			var tag2 = new Tag { TagId = 2, Created = DateTime.Now, Description = "Canada", Name = "CA" };
 			context.Tags.Add(tag2);
 
-			var tagId3 = new Guid("F0A069E8-38D6-E511-8325-54271E914DCC"); 
-			var tag3 = new Tag { TagId = tagId3, CreatedBy = userId, Created = DateTime.Now, Description = "Australia", Name = "AU" };
+			var tag3 = new Tag { TagId = 3, CreatedBy = user, Created = DateTime.Now, Description = "Australia", Name = "AU" };
 
 			context.Tags.Add(tag3);
 
-			var discussion1 = new Post
+			var post = new Post
 			{
 
-				Comments = new List<Comment> { new Comment { Content = "Yeah, why not?", Created = DateTime.Now, CreatedBy = userId } },
+				Comments = new List<Comment> { new Comment { Content = "Yeah, why not?", Created = DateTime.Now, CreatedBy = user } },
 				Content = "Why the big move?",
 				Created = DateTime.Now,
-				CreatedBy = userId,
+				CreatedBy = user,
 				Tags = new List<Tag> { tag1, tag2, tag3 }
 			};
 
-			context.Posts.Add(discussion1);
+			context.Posts.Add(post);
 
 			context.SaveChanges();
 		}

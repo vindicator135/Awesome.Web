@@ -9,10 +9,6 @@ namespace Awesome.Web.Api.Services
 {
 	public interface IUsersService
 	{
-		string GetUserName(Guid? userId);
-
-		string GetUserAvatarUrl(Guid userId);
-
-		Task<UserItem> GetUser(Guid? userId);
+		
 	}
 }

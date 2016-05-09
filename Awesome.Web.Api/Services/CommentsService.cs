@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Awesome.Web.Api.Services
 {
@@ -21,7 +22,7 @@ namespace Awesome.Web.Api.Services
 		{
 			var result = new List<CommentItem>();
 
-			var postComments = factory.Create().Get<Post>().Include("Comments").FirstOrDefault(d => d.PostId == postId);
+			var postComments = factory.Create().Posts.Include(x => x.Comments).Include(x => x.Comments.Select(y => y.CreatedBy)).FirstOrDefault(d => d.PostId == postId);
 
 			if (postComments != null)
 			{
@@ -33,9 +34,9 @@ namespace Awesome.Web.Api.Services
 					{
 						var commentItem = new CommentItem
 						{
-							UserAvatarUrl = _usersService.GetUserAvatarUrl(comment.CreatedBy),
+							UserAvatarUrl = comment.CreatedBy.AvatarUrl,
 							Content = comment.Content,
-							CreatedByName = _usersService.GetUserName(comment.CreatedBy),
+							CreatedByName = comment.CreatedBy.UserName,
 							LastUpdated = comment.LastUpdated,
 						};
 

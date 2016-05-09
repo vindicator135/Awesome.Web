@@ -31,9 +31,8 @@ namespace Awesome.Web.Api
 			builder.RegisterWebApiFilterProvider(config);
 
 			// Structure the dependencies
-			builder.RegisterType<AuthorizationService>().As<IAuthorizationService>();
 			builder.RegisterType<CommentsService>().As<ICommentsService>();
-			builder.RegisterType<PostsService>().As<IDiscussionsService>();
+			builder.RegisterType<PostsService>().As<IPostsService>();
 			builder.RegisterType<RatingsService>().As<IRatingsService>();
 			builder.RegisterType<TagsService>().As<ITagsService>();
 			builder.RegisterType<UsersService>().As<IUsersService>();

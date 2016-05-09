@@ -14,57 +14,58 @@ using Awesome.Web.Api.Models.Request;
 namespace Awesome.Web.Api.Controllers
 {
 	[EnableCors(origins: "http://localhost:1999", headers: "*", methods: "*")]
+	[Authorize]
 	public class PostsController : ApiController
 	{
-		private IDiscussionsService _discussionService;
+		private IPostsService _postService;
 
-		public PostsController(IDiscussionsService discussionService)
+		public PostsController(IPostsService discussionService)
 		{
-			this._discussionService = discussionService;
+			this._postService = discussionService;
 		}
 
 		[HttpGet]
-		[Route("api/discussion/{discussionId}")]
-		public async Task<IHttpActionResult> FindDiscussionById(Guid discussionId)
+		[Route("api/posts/{postId}")]
+		public async Task<IHttpActionResult> FindPostsById(Guid postId)
 		{
-			var result = await _discussionService.SearchDiscussions(new PostSearchRequest { DiscussionId = discussionId });
+			var result = await _postService.SearchPosts(new PostSearchRequest { PostId = postId });
 
 			return ResponseMessage(AwesomeHelper.Content(result));
 		}
 
 		[HttpGet]
-		[Route("api/discussion/search/{search}")]
-		public async Task<IHttpActionResult> SearchDiscussions(string search)
+		[Route("api/posts/search/{search}")]
+		public async Task<IHttpActionResult> SearchPosts(string search)
 		{
-			var result = await _discussionService.SearchDiscussions(search);
+			var result = await _postService.SearchPosts(search);
 
 			return ResponseMessage(AwesomeHelper.Content(result));
 		}
 
 		[HttpPost]
-		[Route("api/discussion")]
-		public async Task<IHttpActionResult> AddDiscussion([FromBody] PostUpdateRequest request)
+		[Route("api/posts")]
+		public async Task<IHttpActionResult> AddPost([FromBody] PostUpdateRequest request)
 		{
-			var result = await _discussionService.AddPost(request);
+			var result = await _postService.AddPost(request);
 
 			return ResponseMessage(AwesomeHelper.Content(result));
 		}
 
 		[HttpPut]
-		[Route("api/discussion/{discussionId}")]
-		public async Task<IHttpActionResult> EditDiscussion([FromBody] PostUpdateRequest request, Guid discussionId)
+		[Route("api/posts/{postId}")]
+		public async Task<IHttpActionResult> EditDiscussion([FromBody] PostUpdateRequest request, Guid postId)
 		{
-			var result = await _discussionService.EditDiscussion(request);
+			var result = await _postService.EditPost(request);
 
 			return ResponseMessage(AwesomeHelper.Content(result));
  
 		}
 
 		[HttpPut]
-		[Route("api/discussion/remove")]
-		public async Task<IHttpActionResult> RemoveDiscussion([FromBody] Guid discussionId)
+		[Route("api/posts/remove")]
+		public async Task<IHttpActionResult> RemoveDiscussion([FromBody] Guid postId)
 		{
-			var result = await _discussionService.RemoveDiscussion(discussionId);
+			var result = await _postService.RemovePost(postId);
 
 			return ResponseMessage(AwesomeHelper.Content(result));
 		}

@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace Awesome.Web.Api.Services
 {
-	public interface IDiscussionsService
+	public interface IPostsService
 	{
 
-		Task<List<PostItem>> SearchDiscussions(string search);
+		Task<List<PostItem>> SearchPosts(string search);
 
-		Task<List<PostItem>> SearchDiscussions(PostSearchRequest request);
+		Task<List<PostItem>> SearchPosts(PostSearchRequest request);
 
 		Task<object> AddPost(PostUpdateRequest request);
 
-		Task<object> RemoveDiscussion(Guid discussionId);
+		Task<object> RemovePost(Guid discussionId);
 
-		Task<object> EditDiscussion(PostUpdateRequest request);
+		Task<object> EditPost(PostUpdateRequest request);
 	}
 }

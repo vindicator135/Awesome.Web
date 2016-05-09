@@ -14,10 +14,11 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Awesome.Web.Api.Results;
+using Awesome.Entities.Entities;
 
 namespace Awesome.Web.Api
 {
-    [Authorize]
+	[Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {

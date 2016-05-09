@@ -10,8 +10,8 @@ namespace Awesome.Web.Api.Services
 {
 	public interface ITagsService
 	{
-		Task<List<TagItem>> GetPostTags(Guid guid);
+		Task<List<TagItem>> GetPostTags(Guid postId);
 
-		List<Tag> GetTagsById(List<Guid> tags);
+		List<Tag> GetTagsById(List<int> tags);
 	}
 }

@@ -55,6 +55,8 @@
     <Content Include="app\posts\views\post-main.ng.html" />
     <Content Include="app\posts\views\search-list.ng.html" />
     <Content Include="app\services\commentServices.ng.js" />
+    <Content Include="app\services\authenticationServices.ng.js" />
+    <Content Include="app\services\httpServices.ng.js" />
     <Content Include="app\services\postServices.ng.js" />
     <Content Include="images\custom\main-logo-300x102.png" />
     <Content Include="js\angular-sanitize.min.js" />
@@ -275,6 +277,7 @@
     <Content Include="js\jquery.viewport.mini.js" />
     <Content Include="js\main.js" />
     <Content Include="js\modernizr.js" />
+    <Content Include="js\ngStorage.min.js" />
     <Content Include="js\one-page-main.js" />
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="js\page-scroll.js" />

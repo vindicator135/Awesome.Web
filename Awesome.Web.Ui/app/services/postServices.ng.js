@@ -1,4 +1,4 @@
-﻿angular.module("AwesomeWeb").factory("postServices", ['$http', '$log',  function ($http, $log) {
+﻿angular.module("AwesomeWeb").factory("postServices", ['awesomeHttpServices', '$log', function (awesomeHttpServices, $log) {
 	
 	var posts = [];
 
@@ -129,6 +129,8 @@
 		searchPosts: function (query) {
 			var searchWords = query.split(' ');
 
+			
+
 			return _.filter(posts, function (p) {
 				if (searchWords.length > 0) {
 					for (var i = 0; i < searchWords.length ; i++) {
@@ -143,6 +145,8 @@
 		},
 		getLatestPost: function () {
 			// Get the latest post by DATE.. think about using MOMENTS instead
+			awesomeHttpServices.get('/api/posts/39F0EA7D-B7D7-E511-8325-54271E914DCC');
+
 			return sample1;
 		},
 		getOtherPosts: function () {

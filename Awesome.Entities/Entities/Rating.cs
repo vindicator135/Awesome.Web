@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Awesome.Entities.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,8 +16,6 @@ namespace Awesome.Entities
 
 		public int Score { get; set; }
 
-		public Guid CreatedById { get; set; }
-
-		public User CreatedBy { get; set; }
+		public virtual ApplicationUser CreatedBy { get; set; }
 	}
 }

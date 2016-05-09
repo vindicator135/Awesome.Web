@@ -2,6 +2,7 @@
 using Awesome.Web.Api.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace Awesome.Web.Api.Services
 		{
 			var result = new List<TagItem>();
 
-			var postTags = factory.Create().Posts.Include("Tags").FirstOrDefault(d => d.PostId == postId);
+			var postTags = await factory.Create().Posts.Include("Tags").FirstOrDefaultAsync(d => d.PostId == postId);
 
 			if (postTags != null && postTags.Tags != null)
 			{
@@ -35,7 +36,7 @@ namespace Awesome.Web.Api.Services
 			return result;
 		}
 
-		public List<Tag> GetTagsById(List<Guid> tags)
+		public List<Tag> GetTagsById(List<int> tags)
 		{
 			List<Tag> results = null;
 

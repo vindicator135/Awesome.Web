@@ -10,12 +10,12 @@ namespace Awesome.Entities
 	public class Tag : BaseEntity
 	{
 		[Key]
-		public Guid TagId { get; set; }
+		public int TagId { get; set; }
 
 		public string Name { get; set; }
 
 		public string Description { get; set; }
 
-		public virtual ICollection<Post> Discussions { get; set; }
+		public virtual ICollection<Post> Posts { get; set; }
 	}
 }

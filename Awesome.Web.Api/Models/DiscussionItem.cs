@@ -25,5 +25,7 @@ namespace Awesome.Web.Api.Models
 		public DateTime? LastUpdatedOn { get; set; }
 
 		public string LastUpdatedBy { get; set; }
+
+		public string CreatedBy { get; internal set; }
 	}
 }

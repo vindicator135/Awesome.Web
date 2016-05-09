@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Awesome.Web.Api.Services
 {
-	public class PostsService : BaseService, IDiscussionsService
+	public class PostsService : BaseService, IPostsService
 	{
 		private ICommentsService _commentsService;
 
@@ -39,12 +39,12 @@ namespace Awesome.Web.Api.Services
 		/// </summary>
 		/// <param name="search"></param>
 		/// <returns></returns>
-		public async Task<List<PostItem>> SearchDiscussions(string search)
+		public async Task<List<PostItem>> SearchPosts(string search)
 		{
 			return await GetDiscussions(search, 1, 5);
 		}
 
-		public async Task<List<PostItem>> SearchDiscussions(PostSearchRequest request)
+		public async Task<List<PostItem>> SearchPosts(PostSearchRequest request)
 		{
 			return await GetDiscussions(request.Search, request.Grouping, request.MaxResults);
 		}
@@ -53,7 +53,7 @@ namespace Awesome.Web.Api.Services
 		{
 			var result = new List<PostItem>();
 
-			var postQuery = factory.Create().Get<Post>().Select(d => d);
+			var postQuery = factory.Create().Posts.Select(p => p);
 
 			if (!string.IsNullOrEmpty(search))
 			{
@@ -79,26 +79,27 @@ namespace Awesome.Web.Api.Services
 				postQuery = postQuery.Take(maxResults);
 			}
 
-			var discussionList = postQuery.ToList();
+			var postList = postQuery.ToList();
 
-			foreach (var discussion in discussionList)
+			foreach (var post in postList)
 			{
-				var discussionItem = await GetDiscussionItem(discussion);
+				var postItem = await GetPostItem(post);
 
-				result.Add(discussionItem);
+				result.Add(postItem);
 			}
 
 			return result;
 		}
 
-		private async Task<PostItem> GetDiscussionItem(Post post)
+		private async Task<PostItem> GetPostItem(Post post)
 		{
 			var postItem = new PostItem()
 			{
 				PostId = post.PostId,
 				Content = post.Content,
 				LastUpdatedOn = post.LastUpdated,
-				LastUpdatedBy = _usersService.GetUserName(post.LastUpdatedBy)
+				CreatedBy = post.CreatedBy.UserName,
+				LastUpdatedBy = post.LastUpdatedBy?.UserName
 			};
 
 			postItem.RatingScore = (int)(await _ratingsService.GetPostAvarageRating(post.PostId));
@@ -132,10 +133,12 @@ namespace Awesome.Web.Api.Services
 		{
 			using (var context = factory.Create())
 			{
+				var user = context.Users.FirstOrDefault(x => x.UserName.Equals(request.CreatedByUserName, StringComparison.InvariantCultureIgnoreCase));
+
 				var post = new Post
 				{
 					Content = request.Content,
-					CreatedBy = request.CreatedBy,
+					CreatedBy = user,
 					Created = DateTime.Now,
 					Tags = _tagsService.GetTagsById(request.Tags)
 				};
@@ -146,7 +149,7 @@ namespace Awesome.Web.Api.Services
 			}
 		}
 
-		public async Task<object> RemoveDiscussion(Guid postId)
+		public async Task<object> RemovePost(Guid postId)
 		{
 			using (var context = factory.Create())
 			{
@@ -159,16 +162,18 @@ namespace Awesome.Web.Api.Services
 			}
 		}
 
-		public async Task<object> EditDiscussion(PostUpdateRequest request)
+		public async Task<object> EditPost(PostUpdateRequest request)
 		{
 			using (var context = factory.Create())
 			{
 				var post = context.Posts.Include("Tags").FirstOrDefault(d => d.PostId == request.PostId);
 
+				var user = context.Users.FirstOrDefault(x => x.UserName.Equals(request.LastUpdatedByUserName, StringComparison.InvariantCultureIgnoreCase));
+
 				if (post != null)
 				{
 					post.Content = request.Content;
-					post.LastUpdatedBy = request.LastUpdatedBy;
+					post.LastUpdatedBy = user;
 					post.LastUpdated = DateTime.UtcNow;
 					post.Tags = _tagsService.GetTagsById(request.Tags);
 				}
