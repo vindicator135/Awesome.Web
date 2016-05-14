@@ -19,9 +19,9 @@
 					<div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
 					<div class="widget-body">
 						<ul class="widget-posts">
-							<li class="clearfix" ng-repeat="post in posts track by post.postId ">
-								<a href="blog-single-right-sidebar.html"><img src="{{post.postAvatarUrl}}" alt="" /></a>
-								<div class="widget-posts-details"><a ui-sref="posts.detail({postId: post.postId})"><div ng-bind-html="post.titleText"></div></a> {{post.date}} | {{post.tags | splitToList}}</div>
+							<li class="clearfix" ng-repeat="post in posts track by post.PostId ">
+								<a href="blog-single-right-sidebar.html"><img src="{{post.PostAvatarUrl}}" alt="" /></a>
+								<div class="widget-posts-details"><a ui-sref="posts.detail({postId: post.PostId})"><div ng-bind-html="post.TitleText"></div></a> {{post.Date}} | {{post.Tags | splitToList}}</div>
 							</li>
 						</ul>
 					</div>
@@ -32,7 +32,7 @@
 					<h5 class="widget-title font-alt">Tags</h5>
 					<div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
 					<div class="widget-body tags">
-						<a ng-repeat="tag in tags track by tag.tagId" ui-sref="posts.tags({tagId: tag.tagId})">{{tag.name}}</a>
+						<a ng-repeat="tag in tags track by tag.TagId" ui-sref="posts.tags({tagId: tag.TagId})">{{tag.Name}}</a>
 					</div>
 				</div>
 				<!-- end widget  -->
@@ -43,7 +43,7 @@
 					<div class="widget-body">
 						<ul class="widget-posts">
 							<li class="clearfix" ng-repeat="comment in recentComments">
-								<div class="widget-posts-details"><a ui-sref="posts.detail({postId: comment.postId})">{{comment.title}}</a> {{comment.userName}} | {{comment.date}}</div>
+								<div class="widget-posts-details"><a ui-sref="posts.detail({postId: comment.PostId})">{{comment.title}}</a> {{comment.userName}} | {{comment.Date}}</div>
 							</li>
 						</ul>
 					</div>

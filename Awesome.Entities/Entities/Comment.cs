@@ -12,6 +12,12 @@ namespace Awesome.Entities
 
 		public string Content { get; set; }
 
+		public Post Post { get; set; }
+
+		public string AvatarUrl { get; set; }
+
+		public string UserName { get; set; }
+
 		public Comment Parent { get; set; }
 
 		public ICollection<Comment> Children { get; set; }

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Awesome.Web.Api.Models;
 using System.Web.Http.Cors;
 using Awesome.Web.Api.Models.Request;
+using Newtonsoft.Json;
 
 namespace Awesome.Web.Api.Controllers
 {
@@ -25,22 +26,33 @@ namespace Awesome.Web.Api.Controllers
 		}
 
 		[HttpGet]
-		[Route("api/posts/{postId}")]
-		public async Task<IHttpActionResult> FindPostsById(Guid postId)
+		[Route("api/posts/{query}")]
+		public async Task<IHttpActionResult> SearchPosts(string query)
 		{
-			var result = await _postService.SearchPosts(new PostSearchRequest { PostId = postId });
+			var result = await _postService.SearchPosts(new PostSearchRequest { Search = query });
 
 			return ResponseMessage(AwesomeHelper.Content(result));
 		}
 
 		[HttpGet]
-		[Route("api/posts/search/{search}")]
-		public async Task<IHttpActionResult> SearchPosts(string search)
+		[Route("api/posts/top/{top}")]
+		public async Task<IHttpActionResult> GetRecentPosts(int top)
 		{
-			var result = await _postService.SearchPosts(search);
+			var result = await _postService.SearchPosts(new PostSearchRequest { Top = top });
 
 			return ResponseMessage(AwesomeHelper.Content(result));
 		}
+
+		[HttpGet]
+		[Route("api/posts/{postId}/details")]
+		public async Task<IHttpActionResult> FindPostsById(int postId)
+		{
+			var result = await _postService.GetPostDetails(postId);
+
+			return ResponseMessage(AwesomeHelper.Content(result));
+		}
+
+		
 
 		[HttpPost]
 		[Route("api/posts")]

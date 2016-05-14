@@ -15,11 +15,11 @@ namespace Awesome.Web.Api.Services
 		{
 		}
 
-		public async Task<List<TagItem>> GetPostTags(Guid postId)
+		public async Task<List<TagItem>> GetPostTags(int postId)
 		{
 			var result = new List<TagItem>();
 
-			var postTags = await factory.Create().Posts.Include("Tags").FirstOrDefaultAsync(d => d.PostId == postId);
+			var postTags = await this.Context.Posts.Include("Tags").FirstOrDefaultAsync(d => d.PostId == postId);
 
 			if (postTags != null && postTags.Tags != null)
 			{
@@ -27,7 +27,7 @@ namespace Awesome.Web.Api.Services
 				{
 					var tagItem = new TagItem
 					{
-						Description = t.Description
+						Name = t.Name
 					};
 
 					result.Add(tagItem);
@@ -40,7 +40,7 @@ namespace Awesome.Web.Api.Services
 		{
 			List<Tag> results = null;
 
-			var matchedTags = factory.Create().Tags.Where(t => tags.Contains(t.TagId)).Select(t => t);
+			var matchedTags = this.Context.Tags.Where(t => tags.Contains(t.TagId)).Select(t => t);
 
 			if (matchedTags.Any())
 			{

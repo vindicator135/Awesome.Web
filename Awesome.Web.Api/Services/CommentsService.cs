@@ -18,11 +18,11 @@ namespace Awesome.Web.Api.Services
 			_usersService = usersService;
 		}
 
-		public async Task<List<CommentItem>> GetComments(Guid postId, int numberOfMaxRecords)
+		public async Task<List<CommentItem>> GetComments(int postId, int numberOfMaxRecords)
 		{
 			var result = new List<CommentItem>();
 
-			var postComments = factory.Create().Posts.Include(x => x.Comments).Include(x => x.Comments.Select(y => y.CreatedBy)).FirstOrDefault(d => d.PostId == postId);
+			var postComments = this.Context.Posts.Include(x => x.Comments).Include(x => x.Comments.Select(y => y.CreatedBy)).FirstOrDefault(d => d.PostId == postId);
 
 			if (postComments != null)
 			{

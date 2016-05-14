@@ -45,7 +45,7 @@
   <ItemGroup>
     <Content Include="app\book\views\coming-soon.ng.html" />
     <Content Include="app\book\views\book-main.ng.html" />
-    <Content Include="app\filters\splitToList.ng.js" />
+    <Content Include="app\services\splitToList.ng.js" />
     <Content Include="app\posts\controllers\postCtrl.ng.js" />
     <Content Include="app\posts\controllers\searchPostsCtrl.ng.js" />
     <Content Include="app\posts\post-comments\add-post-comment.ng.html" />
@@ -295,6 +295,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\filters\" />
     <Folder Include="app\models\" />
     <Folder Include="app\posts\styles\" />
     <Folder Include="app\views\" />

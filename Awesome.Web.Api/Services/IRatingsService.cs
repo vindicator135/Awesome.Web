@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Awesome.Web.Api.Services
 {
-	public interface IRatingsService
+	public interface IRatingsService : IAwesomeContext
 	{
-		Task<double> GetPostAvarageRating(Guid postId);
+		Task<double> GetPostAvarageRating(int postId);
 	}
 }

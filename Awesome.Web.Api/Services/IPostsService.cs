@@ -10,9 +10,6 @@ namespace Awesome.Web.Api.Services
 {
 	public interface IPostsService
 	{
-
-		Task<List<PostItem>> SearchPosts(string search);
-
 		Task<List<PostItem>> SearchPosts(PostSearchRequest request);
 
 		Task<object> AddPost(PostUpdateRequest request);
@@ -20,5 +17,7 @@ namespace Awesome.Web.Api.Services
 		Task<object> RemovePost(Guid discussionId);
 
 		Task<object> EditPost(PostUpdateRequest request);
+
+		Task<PostItem> GetPostDetails(int postId);
 	}
 }

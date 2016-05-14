@@ -2,7 +2,7 @@
 
 	$scope.posts = [];
 	$scope.currentPost = {};
-	$scope.tags = [{ tagId: 1, name: "Australia" }, { tagId: 2, name: "Migration" }, { tagId: 3, name: "Skilled" }, { tagId: 4, name: "Permanent" }]
+	$scope.tags = [{ TagId: 1, Name: "Australia" }, { TagId: 2, Name: "Migration" }, { TagId: 3, Name: "Skilled" }, { TagId: 4, Name: "Permanent" }]
 	$scope.recentComments = [];
 	$scope.searchFilter = '';
 
@@ -23,15 +23,23 @@
 	};
 
 	var init = function () {
-		$scope.posts = getOtherPosts();
+		getOtherPosts().then(function (data) {
+			$scope.posts = data;
+		});
+
 		$scope.recentComments = getRecentComments();
+
 		$scope.searchPosts = searchPosts;
 
 		if ($stateParams.postId) {
-			$scope.currentPost = getLatestPost($stateParams.postId);
+			getLatestPost($stateParams.postId).then(function (data) {
+				$scope.currentPost = data;
+			});
 		}
 		else {
-			$scope.currentPost = getLatestPost(null);
+			getLatestPost().then(function (data) {
+				$scope.currentPost = data;
+			});
 		}
 
 		

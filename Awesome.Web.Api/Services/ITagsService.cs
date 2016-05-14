@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Awesome.Web.Api.Services
 {
-	public interface ITagsService
+	public interface ITagsService : IAwesomeContext
 	{
-		Task<List<TagItem>> GetPostTags(Guid postId);
+		Task<List<TagItem>> GetPostTags(int postId);
 
 		List<Tag> GetTagsById(List<int> tags);
 	}

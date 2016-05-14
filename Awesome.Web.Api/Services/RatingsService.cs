@@ -12,11 +12,11 @@ namespace Awesome.Web.Api.Services
 		{
 		}
 
-		public async Task<double> GetPostAvarageRating(Guid postId)
+		public async Task<double> GetPostAvarageRating(int postId)
 		{
 			var rating = 0.0;
 
-			var post = factory.Create().Posts.Include("Ratings").FirstOrDefault(d => d.PostId == postId);
+			var post = this.Context.Posts.Include("Ratings").FirstOrDefault(d => d.PostId == postId);
 
 			if (post != null && post.Ratings != null && post.Ratings.Count() > 0)
 			{

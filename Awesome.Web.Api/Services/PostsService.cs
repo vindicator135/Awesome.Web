@@ -26,64 +26,61 @@ namespace Awesome.Web.Api.Services
 			IUsersService usersService) : base(factory)
 		{
 			this._commentsService = commentsService;
-
+			this._commentsService.Context = this.Context;
+			
 			this._ratingsService = ratingsService;
+			this._ratingsService.Context = this.Context;
 
 			this._tagsService = tagsService;
+			this._tagsService.Context = this.Context;
 
 			this._usersService = usersService;
-		}
-
-		/// <summary>
-		/// Returns the Discussion with the last two comments, Rating, Tags
-		/// </summary>
-		/// <param name="search"></param>
-		/// <returns></returns>
-		public async Task<List<PostItem>> SearchPosts(string search)
-		{
-			return await GetDiscussions(search, 1, 5);
+			this._usersService.Context = this.Context;
 		}
 
 		public async Task<List<PostItem>> SearchPosts(PostSearchRequest request)
 		{
-			return await GetDiscussions(request.Search, request.Grouping, request.MaxResults);
-		}
-
-		private async Task<List<PostItem>> GetDiscussions(string search, int grouping, int maxResults)
-		{
 			var result = new List<PostItem>();
 
-			var postQuery = factory.Create().Posts.Select(p => p);
+			var postQuery = this.Context.Posts.Include("Tags").Select(p => p);
 
-			if (!string.IsNullOrEmpty(search))
+			if (!string.IsNullOrEmpty(request.Search))
 			{
-				postQuery = postQuery.Where(d => d.Content.Contains(search));
+				postQuery = postQuery.Where(d => d.Content.Contains(request.Search) || d.Title.Contains(request.Search) || d.SubContent.Contains(request.Search));
 			}
 
-			switch (grouping)
+			switch (request.Grouping)
 			{
-				case 1:
-					postQuery = postQuery.OrderByDescending(d => d.LastUpdated);
-					break;
-
 				case 2:
 					postQuery = postQuery.OrderByDescending(d => d.Ratings.Sum(r => r.Score));
 					break;
-
+				case 1:
 				default:
+					postQuery = postQuery.OrderByDescending(d => d.LastUpdated);
 					break;
 			}
 
-			if (maxResults > 0)
+			if (request.Top > 0)
 			{
-				postQuery = postQuery.Take(maxResults);
+				postQuery = postQuery.Take(request.Top);
 			}
 
 			var postList = postQuery.ToList();
 
+			
+
 			foreach (var post in postList)
 			{
-				var postItem = await GetPostItem(post);
+				var postItem = new PostItem
+				{
+					SubContent = post.SubContent,
+					Title = post.Title,
+					SubTitle = post.SubTitle,
+					PostId = post.PostId,
+					TitleText = post.TitleText,
+					PostAvatarUrl = post.PostAvatarUrl,
+					Tags = post.Tags.Select(t => new TagItem { Name = t.Name, TagId = t.TagId  }).ToList()
+				};
 
 				result.Add(postItem);
 			}
@@ -91,55 +88,24 @@ namespace Awesome.Web.Api.Services
 			return result;
 		}
 
-		private async Task<PostItem> GetPostItem(Post post)
-		{
-			var postItem = new PostItem()
-			{
-				PostId = post.PostId,
-				Content = post.Content,
-				LastUpdatedOn = post.LastUpdated,
-				CreatedBy = post.CreatedBy.UserName,
-				LastUpdatedBy = post.LastUpdatedBy?.UserName
-			};
-
-			postItem.RatingScore = (int)(await _ratingsService.GetPostAvarageRating(post.PostId));
-
-			List<CommentItem> comments = await _commentsService.GetComments(post.PostId, 3);
-
-			if (comments.FirstOrDefault() != null)
-			{
-				// Set the Last on to the most recent comment if any
-				postItem.LastUpdatedOn = comments.First().LastUpdated;
-
-				comments.ForEach(c =>
-				{
-					postItem.Comments.Add(c);
-				});
-			}
-
-			List<TagItem> tags = await _tagsService.GetPostTags(post.PostId);
-
-			if (tags.FirstOrDefault() != null)
-			{
-				tags.ForEach(t =>
-				{
-					postItem.Tags.Add(t);
-				});
-			}
-			return postItem;
-		}
-
 		public async Task<object> AddPost(PostUpdateRequest request)
 		{
-			using (var context = factory.Create())
+			using (var context = this.Context)
 			{
-				var user = context.Users.FirstOrDefault(x => x.UserName.Equals(request.CreatedByUserName, StringComparison.InvariantCultureIgnoreCase));
+				var user = context.Users.Where(x => x.UserName == request.CreatedBy).FirstOrDefault();
 
 				var post = new Post
 				{
 					Content = request.Content,
+					SubTitle = request.SubTitle,
+					Title = request.Title,
+					SubContent = request.SubContent,
+					TitleText = request.TitleText,
+					PreContent = request.PreContent,
+					PostAvatarUrl = request.PostAvatarUrl,
 					CreatedBy = user,
-					Created = DateTime.Now,
+					Created = DateTime.UtcNow,
+					LastUpdated = DateTime.UtcNow,
 					Tags = _tagsService.GetTagsById(request.Tags)
 				};
 
@@ -151,7 +117,7 @@ namespace Awesome.Web.Api.Services
 
 		public async Task<object> RemovePost(Guid postId)
 		{
-			using (var context = factory.Create())
+			using (var context = this.Context)
 			{
 				var post = context.Posts.Find(postId);
 
@@ -164,11 +130,11 @@ namespace Awesome.Web.Api.Services
 
 		public async Task<object> EditPost(PostUpdateRequest request)
 		{
-			using (var context = factory.Create())
+			using (var context = this.Context)
 			{
 				var post = context.Posts.Include("Tags").FirstOrDefault(d => d.PostId == request.PostId);
 
-				var user = context.Users.FirstOrDefault(x => x.UserName.Equals(request.LastUpdatedByUserName, StringComparison.InvariantCultureIgnoreCase));
+				var user = context.Users.FirstOrDefault(x => x.UserName.Equals(request.LastUpdatedBy, StringComparison.InvariantCultureIgnoreCase));
 
 				if (post != null)
 				{
@@ -180,6 +146,34 @@ namespace Awesome.Web.Api.Services
 
 				return await context.SaveChangesAsync();
 			}
+		}
+
+		public async Task<PostItem> GetPostDetails(int postId)
+		{
+			var postItem = new PostItem();
+
+			using (var context = this.Context)
+			{
+				var post = context.Posts.Include("Tags").Include("Ratings").FirstOrDefault(d => d.PostId == postId);
+
+				postItem.PostId = post.PostId;
+				postItem.SubContent = post.SubContent;
+				postItem.PreContent = post.PreContent;
+				postItem.PostAvatarUrl = post.PostAvatarUrl;
+				postItem.SubTitle = post.SubTitle;
+				postItem.Title = post.Title;
+				postItem.SubTitle = post.SubTitle;
+				postItem.Content = post.Content;
+				postItem.LastUpdatedOn = post.LastUpdated;
+				postItem.CreatedBy = post.CreatedBy.UserName;
+				postItem.LastUpdatedBy = post.LastUpdatedBy?.UserName;
+
+				postItem.RatingScore = (int)(await _ratingsService.GetPostAvarageRating(post.PostId));
+
+				postItem.Tags = post.Tags.Select(t => new TagItem { TagId = t.TagId, Name = t.Name }).ToList();
+
+			}
+			return postItem;
 		}
 	}
 }

@@ -1,5 +1,4 @@
 ﻿angular.module("AwesomeWeb").controller("SearchPostsCtrl", function ($scope, $stateParams, postServices) {
-
 	getPostsByTagId = function (tagId) {
 		return postServices.getPostsByTagId(tagId);
 	}
@@ -9,16 +8,13 @@
 	}
 
 	var init = function () {
-
 		if ($stateParams.tagId) {
-			$scope.posts = getPostsByTagId($stateParams.tagId);
+			getPostsByTagId($stateParams.tagId).then(function (data) { $scope.posts = data; });
 		}
 		else if ($stateParams.search) {
-			$scope.posts = getPostsByQuery($stateParams.search);
+			getPostsByQuery($stateParams.search).then(function (data) { $scope.posts = data; });
 		}
-
 	};
 
 	init();
-	
 });

@@ -14,7 +14,7 @@
     <RootNamespace>Awesome.Web.Api</RootNamespace>
     <AssemblyName>Awesome.Web.Api</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -174,14 +174,15 @@
     <Compile Include="Models\ErrorCode.cs" />
     <Compile Include="Models\Request\PostSearchRequest.cs" />
     <Compile Include="Models\CommentItem.cs" />
-    <Compile Include="Models\DiscussionItem.cs" />
+    <Compile Include="Models\PostItem.cs" />
     <Compile Include="Controllers\PostsController.cs" />
-    <Compile Include="Models\Request\NewDiscussionRequest.cs" />
+    <Compile Include="Models\Request\NewPostRequest.cs" />
     <Compile Include="Models\Response\BaseResponse.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\IAwesomeContext.cs" />
     <Compile Include="Services\PostsService.cs" />
     <Compile Include="Services\CommentsService.cs" />
     <Compile Include="Services\ICommentsService.cs" />
@@ -238,7 +239,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52751</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:59729/</IISUrl>
+          <IISUrl>http://localhost/AwesomeWeb</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

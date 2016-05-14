@@ -1,13 +1,13 @@
-﻿angular.module("AwesomeWeb").factory("postServices", ['awesomeHttpServices', '$log', function (awesomeHttpServices, $log) {
+﻿angular.module("AwesomeWeb").factory("postServices", ['$log', '$q', 'awesomeHttpServices', function ($log, $q, awesomeHttpServices) {
 	
 	var posts = [];
 
 	var sample1 = {
-		postId: 1,
-		title: "<h2 class='blog-details-headline text-black'>A Couple of Tips When Migrating Abroad</h2>",
-		subTitle: "<div class='blog-date no-padding-top'>Posted by <a href='blog-masonry-3columns.html'>Stephen Cate</a> | 02 January 2015 | <a href='blog-masonry-3columns.html'>Migration</a>, <a href='blog-masonry-3columns.html'>Australia</a> </div>",
-		subContent: "<div class='blog-details-text'><p class='text-large'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p></div>",
-		content: "<div class='blog-details-text'>" +
+		PostId: 1,
+		Title: "<h2 class='blog-details-headline text-black'>A Couple of Tips When Migrating Abroad</h2>",
+		SubTitle: "<div class='blog-date no-padding-top'>Posted by <a href='blog-masonry-3columns.html'>Stephen Cate</a> | 02 January 2015 | <a href='blog-masonry-3columns.html'>Migration</a>, <a href='blog-masonry-3columns.html'>Australia</a> </div>",
+		SubContent: "<div class='blog-details-text'><p class='text-large'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p></div>",
+		Content: "<div class='blog-details-text'>" +
 							"<p class='text-large'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>" +
 							"<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>" +
 							"<div class='blog-image margin-eight'><img src='http://placehold.it/1920x1200' alt=''></div>" +
@@ -22,20 +22,20 @@
 							"<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>" +
 							"<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>" +
 						"</div>",
-		tags: [{ tagId: 1, name: "Australia" }],
-		date: "02 January 2015",
-		postAvatarUrl: "http://placehold.it/75x56",
-		titleText: "A Couple of Tips When Migrating Abroad",
-		preContent: "<div class='blog-image margin-eight'><img src='http://placehold.it/1920x1200' alt=''></div>"
+		Tags: [{ TagId: 1, Name: "Australia" }],
+		Date: "02 January 2015",
+		PostAvatarUrl: "http://placehold.it/75x56",
+		TitleText: "A Couple of Tips When Migrating Abroad",
+		PreContent: "<div class='blog-image margin-eight'><img src='http://placehold.it/1920x1200' alt=''></div>"
 	
 	};
 
 	var sample2 = {
-		postId: 2,
-		title: "<h2 class='blog-details-headline text-black'>CXZCx !@#!@# asdasdasdasds</h2>",
-		subTitle: "<div class='blog-date no-padding-top'>Posted by <a href='blog-masonry-3columns.html'>Stephen Cate</a> | 02 January 2015 | <a href='blog-masonry-3columns.html'>Migration</a>, <a href='blog-masonry-3columns.html'>Australia</a> </div>",
-		subContent: "<div class='blog-details-text'><p class='text-large'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p></div>",
-		content: "<div class='blog-details-text'>" +
+		PostId: 2,
+		Title: "<h2 class='blog-details-headline text-black'>CXZCx !@#!@# asdasdasdasds</h2>",
+		SubTitle: "<div class='blog-date no-padding-top'>Posted by <a href='blog-masonry-3columns.html'>Stephen Cate</a> | 02 January 2015 | <a href='blog-masonry-3columns.html'>Migration</a>, <a href='blog-masonry-3columns.html'>Australia</a> </div>",
+		SubContent: "<div class='blog-details-text'><p class='text-large'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p></div>",
+		Content: "<div class='blog-details-text'>" +
 							"<p class='text-large'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>" +
 							"<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>" +
 							"<div class='blog-image margin-eight'><img src='http://placehold.it/1920x1200' alt=''></div>" +
@@ -50,19 +50,19 @@
 							"<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>" +
 							"<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>" +
 						"</div>",
-		tags: [{ tagId: 1, name: "Australia" }, { tagId: 2, name: "Migration" }],
-		date: "02 January 2015",
-		postAvatarUrl: "http://placehold.it/480x358",
-		titleText: "CXZCx !@#!@# asdasdasdasds",
-		preContent: "<div class='blog-image margin-eight'><img src='http://placehold.it/1920x1200' alt=''></div>"
+		Tags: [{ TagId: 1, Name: "Australia" }, { TagId: 2, Name: "Migration" }],
+		Date: "02 January 2015",
+		PostAvatarUrl: "http://placehold.it/480x358",
+		TitleText: "CXZCx !@#!@# asdasdasdasds",
+		PreContent: "<div class='blog-image margin-eight'><img src='http://placehold.it/1920x1200' alt=''></div>"
 	};
 
 	var sample3 = {
-		postId: 3,
-		title: "<h2 class='blog-details-headline text-black'>Zqweqweqw qweaszasdas</h2>",
-		subTitle: "<div class='blog-date no-padding-top'>Posted by <a href='blog-masonry-3columns.html'>Stephen Cate</a> | 02 January 2015 | <a href='blog-masonry-3columns.html'>Migration</a>, <a href='blog-masonry-3columns.html'>Australia</a> </div>",
-		subContent: "<div class='blog-details-text'><p class='text-large'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p></div>",
-		content: "<div class='blog-details-text'>" +
+		PostId: 3,
+		Title: "<h2 class='blog-details-headline text-black'>Zqweqweqw qweaszasdas</h2>",
+		SubTitle: "<div class='blog-date no-padding-top'>Posted by <a href='blog-masonry-3columns.html'>Stephen Cate</a> | 02 January 2015 | <a href='blog-masonry-3columns.html'>Migration</a>, <a href='blog-masonry-3columns.html'>Australia</a> </div>",
+		SubContent: "<div class='blog-details-text'><p class='text-large'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p></div>",
+		Content: "<div class='blog-details-text'>" +
 							"<p class='text-large'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text asd asdf</p>" +
 							"<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>" +
 							"<div class='blog-image margin-eight'><img src='http://placehold.it/1920x1200' alt=''></div>" +
@@ -77,20 +77,20 @@
 							"<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>" +
 							"<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>" +
 						"</div>",
-		tags: [{ tagId: 3, name: "Skilled" }, { tagId: 4, name: "Permanent" }],
-		date: "02 January 2015",
-		postAvatarUrl: "http://placehold.it/480x358",
-		titleText: "Zqweqweqw qweaszasdas",
-		preContent: "<div class='blog-image margin-eight'><img src='http://placehold.it/1920x1200' alt=''></div>"
+		Tags: [{ TagId: 3, Name: "Skilled" }, { TagId: 4, Name: "Permanent" }],
+		Date: "02 January 2015",
+		PostAvatarUrl: "http://placehold.it/480x358",
+		TitleText: "Zqweqweqw qweaszasdas",
+		PreContent: "<div class='blog-image margin-eight'><img src='http://placehold.it/1920x1200' alt=''></div>"
 	};
 
 	var sample4 = {
-		postId: 4,
-		title: "<h2 class='blog-details-headline text-black'>3 Tips to ace your IELTS Listening and Reading</h2>",
-		subTitle: "<div class='blog-date no-padding-top'>Posted by <a href='blog-masonry-3columns.html'>Stephen Cate</a> | 03 May 2016 | <a href='blog-masonry-3columns.html'>Tips</a>, <a href='blog-masonry-3columns.html'>IELTS</a> </div>",
-		subContent: "<div class='blog-details-text'><p class='text-large'>It's been a while since I took my IELTS exam but I do get asked about it by some friends who mean to take it for their own intents and purposes. So, I thought about sharing my tips on this regard, at least for the listening which I think in principle just goes for the reading module as well.</p></div>",
-		preContent: "<div class='blog-image margin-eight'><img src='/images/posts/ielts-1920x1200.jpg' alt=''></div>",
-		content: "<div class='blog-details-text'>" +
+		PostId: 4,
+		Title: "<h2 class='blog-details-headline text-black'>3 Tips to ace your IELTS Listening and Reading</h2>",
+		SubTitle: "<div class='blog-date no-padding-top'>Posted by <a href='blog-masonry-3columns.html'>Stephen Cate</a> | 03 May 2016 | <a href='blog-masonry-3columns.html'>Tips</a>, <a href='blog-masonry-3columns.html'>IELTS</a> </div>",
+		SubContent: "<div class='blog-details-text'><p class='text-large'>It's been a while since I took my IELTS exam but I do get asked about it by some friends who mean to take it for their own intents and purposes. So, I thought about sharing my tips on this regard, at least for the listening which I think in principle just goes for the reading module as well.</p></div>",
+		PreContent: "<div class='blog-image margin-eight'><img src='/images/posts/ielts-1920x1200.jpg' alt=''></div>",
+		Content: "<div class='blog-details-text'>" +
 					"<p><span class='first-letter first-letter-light'>T</span>he International English Language Testing System (IELTS) is one among many great feats every aspiring migrant gets to hurdle with. It will definitely greet you on your way along your visa journey. If you're like me, you may have had that same inkling to just curse upon this irksome requirement. But curse as we might, IELTS is there to stay and we just have to do it.</p>" +
 					"<p>(Be forewarned: This worked for personally. I got 9s for the Listening and Reading modules and an overall band score of 8. I'm no English-major or language professional though so just take my tips to augment your own style and regimen. )</p>" + 
 					"<h2 class='text-transform-none'>Tip #1 - Be a 3rd Wheel.</h2>" +
@@ -114,10 +114,10 @@
 					"<p>The good thing is, it was really enjoyable to listen through a great novel. It's entertaining and I didn't event notice I was actually developing my listening skills as I went along. This was also a pain-saver from my biggest daily stress - my 3 to 4 hour commute to and from work.</p>" +
 					"<p>So there you have it, I hope this helps you in some way and I wish you the best of luck! :)</p>" +
 				 "</div>",
-		tags: [{ tagId: 3, name: "Skilled" }, { tagId: 4, name: "Permanent" }],
-		date: "03 May 2016",
-		postAvatarUrl: "http://placehold.it/480x358",
-		titleText: "3 Tips to ace your IELTS Listening and Reading",
+		Tags: [{ TagId: 3, Name: "Skilled" }, { TagId: 4, Name: "Permanent" }],
+		Date: "03 May 2016",
+		PostAvatarUrl: "http://placehold.it/480x358",
+		TitleText: "3 Tips to ace your IELTS Listening and Reading",
 	};
 
 	posts.push(sample1);
@@ -127,39 +127,76 @@
 
 	return {
 		searchPosts: function (query) {
-			var searchWords = query.split(' ');
-
-			
-
-			return _.filter(posts, function (p) {
-				if (searchWords.length > 0) {
-					for (var i = 0; i < searchWords.length ; i++) {
-						if (p.content.indexOf(searchWords[i]) > 0 || p.title.indexOf(searchWords[i]) > 0)
-							return true;
-					}
-				}
-				else {
-					return p.content.indexOf(query) > 0;
-				}
-			});
-		},
-		getLatestPost: function () {
+			var deferred = $q.defer();
 			// Get the latest post by DATE.. think about using MOMENTS instead
-			awesomeHttpServices.get('/api/posts/39F0EA7D-B7D7-E511-8325-54271E914DCC');
+			awesomeHttpServices.get('/api/posts/' + query).then(function (response) {
+				deferred.resolve(response.data);
+			});
 
-			return sample1;
+			return deferred.promise;
 		},
 		getOtherPosts: function () {
-			return posts;
+			var deferred = $q.defer();
+
+			awesomeHttpServices.get('/api/posts/top/5').then(function (response) {
+				deferred.resolve(response.data);
+			}, function (response) {
+				$log.error(response.statusText);
+				deferred.reject(response.data);
+			});
+
+			return deferred.promise;
+		},
+		getLatestPost: function () {
+			var deferred = $q.defer();
+			// Get the latest post by DATE.. think about using MOMENTS instead
+			awesomeHttpServices.get('/api/posts/top/1').then(function (response) {
+				if (response.data != null) {
+					awesomeHttpServices.get('/api/posts/' + response.data[0].PostId + '/details').then(function (details) {
+						deferred.resolve(details.data);
+					});
+				}
+			});
+
+			return deferred.promise;
 		},
 		getPostById: function (postId) {
-			return _.find(posts, function (p) { return p.postId == postId });
+			var deferred = $q.defer();
+			// Get the latest post by DATE.. think about using MOMENTS instead
+			awesomeHttpServices.get('/api/posts/' + postId + '/details').then(function (response) {
+				//deferred.resolve(response.data);
+				deferred.resolve(response.data);
+			}, function (response) {
+				$log.error(response.statusText);
+				deferred.reject(response.data);
+			});
+
+			return deferred.promise;
 		},
 		getPostsByTagId: function (tagId) {
 			tagId = parseInt(tagId);
 			// TODO: Call http API to get all posts having the same tag
-			return _.filter(posts, function (p) { return _.contains(_.pluck(p.tags, 'tagId'), tagId); });
+			return _.filter(posts, function (p) { return _.contains(_.pluck(p.Tags, 'TagId'), tagId); });
+		},
+		addPost: function (post) {
+			var deferred = $q.defer();
+
+			awesomeHttpServices.post('/api/posts', post).then(function (response) {
+				deferred.resolve(response);
+			}, function (response) {
+				deferred.reject(response);
+			});
+
+			return deferred.promise;
 		}
+
 	};
 
 }]);
+
+angular.module("AwesomeWeb").filter("splitToList", function () {
+	return function (list) {
+		var tagNames = _.pluck(list, 'name');
+		return tagNames.join();
+	}
+});

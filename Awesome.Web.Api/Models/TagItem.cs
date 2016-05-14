@@ -2,6 +2,7 @@
 {
 	public class TagItem
 	{
-		public string Description { get; set; }
+		public int TagId { get; set; }
+		public string Name { get; set; }
 	}
 }

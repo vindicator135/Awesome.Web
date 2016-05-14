@@ -2,10 +2,10 @@
 
 	var init = function () {
 		if ($stateParams.postId) {
-			$scope.currentPost = postServices.getPostById($stateParams.postId);
+			postServices.getPostById($stateParams.postId).then(function (data) { $scope.currentPost = data});
 		}
 		else {
-			$scope.currentPost = postServices.getLatestPost();
+			postServices.getLatestPost().then(function (data) { $scope.currentPost = data });
 		}
 
 	};

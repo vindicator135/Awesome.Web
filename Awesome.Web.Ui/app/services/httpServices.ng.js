@@ -15,9 +15,12 @@
 					$http.post(config.apiBaseUrl + url, data, restConfig).then(function (response) {
 						deferred.resolve(response);
 					}, function (response) {
+						$log.error(response);
 						deferred.reject(response);
 					});
 
+				}, function (response) {
+					deferred.reject(response);
 				});
 			} else {
 				$http.post(config.apiBaseUrl + url, data, restConfig).then(function (response) {
@@ -28,7 +31,7 @@
 			}
 			return deferred.promise;
 		},
-		get: function (url, data) {
+		get: function (url) {
 			var deferred = $q.defer();
 
 			var bearerToken = authenticationServices.getBearerToken();
@@ -39,12 +42,15 @@
 						headers: { 'Authorization': 'Bearer ' + bearerToken }
 					};
 
-					$http.get(config.apiBaseUrl + url, data, restConfig).then(function (response) {
+					$http.get(config.apiBaseUrl + url, restConfig).then(function (response) {
 						deferred.resolve(response);
 					}, function (response) {
+						$log.error(response);
 						deferred.reject(response);
 					});
 
+				}, function (response) {
+					deferred.reject(response);
 				});
 			} else {
 				var restConfig = {

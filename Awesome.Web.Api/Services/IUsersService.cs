@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Awesome.Web.Api.Services
 {
-	public interface IUsersService
+	public interface IUsersService : IAwesomeContext
 	{
 		
 	}
