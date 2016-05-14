@@ -15,6 +15,7 @@ namespace Awesome.Entities.Mappings
 	{
 		public CommentMapping()
 		{
+
 			HasOptional(d => d.Parent)
 				.WithMany(p => p.Children)
 				.Map(c => c.MapKey("ParentId"))

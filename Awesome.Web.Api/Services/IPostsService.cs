@@ -14,7 +14,7 @@ namespace Awesome.Web.Api.Services
 
 		Task<object> AddPost(PostUpdateRequest request);
 
-		Task<object> RemovePost(Guid discussionId);
+		Task<object> RemovePost(int postId);
 
 		Task<object> EditPost(PostUpdateRequest request);
 

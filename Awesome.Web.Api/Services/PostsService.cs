@@ -115,7 +115,7 @@ namespace Awesome.Web.Api.Services
 			}
 		}
 
-		public async Task<object> RemovePost(Guid postId)
+		public async Task<object> RemovePost(int postId)
 		{
 			using (var context = this.Context)
 			{
@@ -138,9 +138,17 @@ namespace Awesome.Web.Api.Services
 
 				if (post != null)
 				{
+					post.Title = request.Title;
+					post.SubTitle = request.SubTitle;
+					post.TitleText = request.TitleText;
+					post.PreContent = request.PreContent;
+					post.SubContent = request.SubContent;
+					post.PostAvatarUrl = request.PostAvatarUrl;
 					post.Content = request.Content;
 					post.LastUpdatedBy = user;
 					post.LastUpdated = DateTime.UtcNow;
+
+					post.Tags.Clear();
 					post.Tags = _tagsService.GetTagsById(request.Tags);
 				}
 

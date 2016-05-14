@@ -12,7 +12,9 @@ namespace Awesome.Entities
 
 		public string Content { get; set; }
 
-		public Post Post { get; set; }
+		public int PostId { get; set; }
+
+		public virtual Post Post { get; set; }
 
 		public string AvatarUrl { get; set; }
 

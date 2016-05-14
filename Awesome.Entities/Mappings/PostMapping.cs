@@ -7,10 +7,15 @@ using System.Threading.Tasks;
 
 namespace Awesome.Entities.Mappings
 {
-	public class DiscussionTagMapping : EntityTypeConfiguration<Post>
+	public class PostMapping : EntityTypeConfiguration<Post>
 	{
-		public DiscussionTagMapping()
+		public PostMapping()
 		{
+			HasMany(p => p.Comments)
+				.WithRequired(c => c.Post)
+				.HasForeignKey(c => c.PostId)
+				.WillCascadeOnDelete(true);
+
 			HasMany(d => d.Tags)
 				.WithMany(t => t.Posts)
 				.Map(dt => {
@@ -18,6 +23,7 @@ namespace Awesome.Entities.Mappings
 					dt.MapRightKey("TagId");
 					dt.ToTable("PostTags");
 				});
+
 		}
 	}
 }

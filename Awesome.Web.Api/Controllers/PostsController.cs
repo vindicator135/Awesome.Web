@@ -65,7 +65,7 @@ namespace Awesome.Web.Api.Controllers
 
 		[HttpPut]
 		[Route("api/posts/{postId}")]
-		public async Task<IHttpActionResult> EditDiscussion([FromBody] PostUpdateRequest request, Guid postId)
+		public async Task<IHttpActionResult> EditPost([FromBody] PostUpdateRequest request, int postId)
 		{
 			var result = await _postService.EditPost(request);
 
@@ -74,8 +74,8 @@ namespace Awesome.Web.Api.Controllers
 		}
 
 		[HttpPut]
-		[Route("api/posts/remove")]
-		public async Task<IHttpActionResult> RemoveDiscussion([FromBody] Guid postId)
+		[Route("api/posts/remove/{postId}")]
+		public async Task<IHttpActionResult> RemoveDiscussion(int postId)
 		{
 			var result = await _postService.RemovePost(postId);
 

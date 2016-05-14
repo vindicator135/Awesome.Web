@@ -21,7 +21,7 @@ namespace Awesome.Entities
 
 			modelBuilder.Configurations.Add(new CommentNodeMapping());
 
-			modelBuilder.Configurations.Add(new DiscussionTagMapping());
+			modelBuilder.Configurations.Add(new PostMapping());
 
 			base.OnModelCreating(modelBuilder);
 		}
