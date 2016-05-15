@@ -209,6 +209,7 @@
     </Content>
     <None Include="Properties\PublishProfiles\ajourneytoawesome.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Arvixe.pubxml" />
+    <None Include="Properties\PublishProfiles\services.ajourneytoawesome.com - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

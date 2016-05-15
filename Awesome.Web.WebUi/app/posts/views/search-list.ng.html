@@ -1,0 +1,14 @@
+﻿<!-- content  -->
+<div class="col-md-8 col-sm-8" ng-if="posts.length == 0">
+	<h4 class='blog-details-headline text-black'>There were no posts that matches the search. Please try again or clear the search box to list all posts.</h4>
+</div>
+<div class="col-md-8 col-sm-8" ng-if="posts.length > 0" ng-repeat="post in posts track by post.PostId" >
+	<!-- post title  -->
+	<a ui-sref="posts.detail({postId: post.PostId})"><div ng-bind-html="post.Title"></div></a>
+	<!-- end post title  -->
+	<!-- post date and categories  -->
+	<div ng-bind-html="post.SubTitle"></div>
+	<!-- end date and categories   -->
+	<div ng-bing-html="post.SubContent"></div>
+</div>
+<!-- end content  -->

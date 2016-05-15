@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awesome.Entities", "Awesome
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awesome.Web.Api", "Awesome.Web.Api\Awesome.Web.Api.csproj", "{2B412086-6777-4265-8274-0C3305BD0B9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awesome.Web.Ui", "Awesome.Web.UI\Awesome.Web.Ui.csproj", "{0764FE51-A2CE-4E85-96FD-F3C2CE0B4C75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awesome.Web.WebUi", "Awesome.Web.WebUi\Awesome.Web.WebUi.csproj", "{0F1CCC64-4290-47C6-8967-0A74A93CB97E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{2B412086-6777-4265-8274-0C3305BD0B9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B412086-6777-4265-8274-0C3305BD0B9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B412086-6777-4265-8274-0C3305BD0B9A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0764FE51-A2CE-4E85-96FD-F3C2CE0B4C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0764FE51-A2CE-4E85-96FD-F3C2CE0B4C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0764FE51-A2CE-4E85-96FD-F3C2CE0B4C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0764FE51-A2CE-4E85-96FD-F3C2CE0B4C75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F1CCC64-4290-47C6-8967-0A74A93CB97E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F1CCC64-4290-47C6-8967-0A74A93CB97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F1CCC64-4290-47C6-8967-0A74A93CB97E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F1CCC64-4290-47C6-8967-0A74A93CB97E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
