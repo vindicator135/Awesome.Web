@@ -59,8 +59,8 @@
     <Content Include="js\._Find Results" />
     <Content Include="js\angular.min.js.gzip" />
     <Content Include="js\angular.min.js.map" />
-    <None Include="Properties\PublishProfiles\ajourneytoawesome.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\ajourneytoawesome.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ajourneytoawesome.com - Local.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

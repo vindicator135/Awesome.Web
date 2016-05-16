@@ -49,6 +49,15 @@ namespace Awesome.Web.Api.Services
 				postQuery = postQuery.Where(d => d.Content.Contains(request.Search) || d.Title.Contains(request.Search) || d.SubContent.Contains(request.Search));
 			}
 
+			if (!string.IsNullOrEmpty(request.Tags))
+			{
+				var tagList = request.Tags
+					.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries)
+					.Select(t => Convert.ToInt32(t)).ToList();
+
+				postQuery = postQuery.Where(p => p.Tags.Any(t => tagList.Contains(t.TagId)));
+			}
+
 			switch (request.Grouping)
 			{
 				case 2:

@@ -1,4 +1,4 @@
-﻿angular.module("AwesomeWeb").factory("commentServices", ['postServices', 'awesomeHttpServices', '$log', function (postServices, awesomeHttpServices, $log) {
+﻿angular.module("AwesomeWeb").factory("commentService", ['postService', 'httpService', '$log', function (postService, httpService, $log) {
 	
 	var mockComments = [
 		{ PostId: 1, Title: "A journey to awesome", AvatarUrl: "http://placehold.it/300x300", UserName: "Mark Cate", Date: "April 30, 2016", Content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry." },

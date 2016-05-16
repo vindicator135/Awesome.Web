@@ -1,10 +1,10 @@
-﻿angular.module("AwesomeWeb").controller("SearchPostsCtrl", function ($scope, $stateParams, postServices) {
+﻿angular.module("AwesomeWeb").controller("SearchPostsCtrl", function ($scope, $stateParams, postService) {
 	getPostsByTagId = function (tagId) {
-		return postServices.getPostsByTagId(tagId);
+		return postService.getPostsByTagId(tagId);
 	}
 
 	getPostsByQuery = function (query) {
-		return postServices.searchPosts(query);
+		return postService.searchPosts(query);
 	}
 
 	var init = function () {

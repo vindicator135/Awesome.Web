@@ -7,7 +7,9 @@ namespace Awesome.Web.Api.Models.Request
 {
 	public class PostSearchRequest : BaseSearchRequest
 	{
+
 		public int PostId { get; set; }
+		public string Tags { get; set; }
 	}
 
 

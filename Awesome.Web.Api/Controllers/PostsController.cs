@@ -26,10 +26,10 @@ namespace Awesome.Web.Api.Controllers
 		}
 
 		[HttpGet]
-		[Route("api/posts/{query}")]
-		public async Task<IHttpActionResult> SearchPosts(string query)
+		[Route("api/posts")]
+		public async Task<IHttpActionResult> SearchPosts([FromUri] PostSearchRequest request)
 		{
-			var result = await _postService.SearchPosts(new PostSearchRequest { Search = query });
+			var result = await _postService.SearchPosts(request);
 
 			return ResponseMessage(AwesomeHelper.Content(result));
 		}
@@ -73,9 +73,9 @@ namespace Awesome.Web.Api.Controllers
  
 		}
 
-		[HttpPut]
-		[Route("api/posts/remove/{postId}")]
-		public async Task<IHttpActionResult> RemoveDiscussion(int postId)
+		[HttpDelete]
+		[Route("api/posts/{postId}")]
+		public async Task<IHttpActionResult> RemovePost(int postId)
 		{
 			var result = await _postService.RemovePost(postId);
 

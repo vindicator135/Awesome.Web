@@ -1,4 +1,4 @@
-﻿angular.module("AwesomeWeb").factory("authenticationServices", ['$http', '$log', '$sessionStorage', '$q', 'config', function ($http, $log, $sessionStorage, $q, config) {
+﻿angular.module("AwesomeWeb").factory("authService", ['$http', '$log', '$sessionStorage', '$q', 'config', function ($http, $log, $sessionStorage, $q, config) {
 
 	return {
 		getBearerToken: function () {
