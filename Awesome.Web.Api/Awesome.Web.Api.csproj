@@ -165,6 +165,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\AwesomeHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Factory\AwesomeContextFactory.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -172,11 +173,14 @@
     <Compile Include="Models\AuthenticationFailureResult.cs" />
     <Compile Include="Models\AddChallengeOnUnauthorizedResult.cs" />
     <Compile Include="Models\ErrorCode.cs" />
+    <Compile Include="Models\Request\BaseSearchRequest.cs" />
+    <Compile Include="Models\Request\TagUpdateRequest.cs" />
+    <Compile Include="Models\Request\TagSearchRequest.cs" />
     <Compile Include="Models\Request\PostSearchRequest.cs" />
     <Compile Include="Models\CommentItem.cs" />
     <Compile Include="Models\PostItem.cs" />
     <Compile Include="Controllers\PostsController.cs" />
-    <Compile Include="Models\Request\NewPostRequest.cs" />
+    <Compile Include="Models\Request\PostUpdateRequest.cs" />
     <Compile Include="Models\Response\BaseResponse.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />

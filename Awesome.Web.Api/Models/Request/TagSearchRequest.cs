@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Awesome.Web.Api.Models.Request
 {
-	public class PostSearchRequest : BaseSearchRequest
+	public class TagSearchRequest : BaseSearchRequest
 	{
-		public int PostId { get; set; }
+		public int TagId { get; set; }
 	}
 
 

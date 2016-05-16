@@ -1,4 +1,4 @@
-﻿angular.module("AwesomeWeb").directive("addPostComment", function (commentServices) {
+﻿angular.module("AwesomeWeb").directive("addPostComment", function (commentService) {
 	return {
 		restrict: 'E',
 		scope: {
@@ -13,7 +13,7 @@
 
 			scope.addNewComment = (comment) => {
 
-				commentServices.addComment(comment);
+				commentService.addComment(comment);
 
 				scope.comments.push(comment);
 

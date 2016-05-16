@@ -11,6 +11,7 @@ namespace Awesome.Web.Api.Services
 	{
 		public UsersService(IDbContextFactory<AwesomeEntities> factory) : base(factory)
 		{
+
 		}
 	}
 }

@@ -1,11 +1,11 @@
-﻿angular.module("AwesomeWeb").controller("PostDetailsCtrl", function ($scope, $stateParams, $state, postServices) {
+﻿angular.module("AwesomeWeb").controller("PostDetailsCtrl", function ($scope, $stateParams, $state, postService) {
 
 	var init = function () {
 		if ($stateParams.postId) {
-			postServices.getPostById($stateParams.postId).then(function (data) { $scope.currentPost = data});
+			postService.getPostById($stateParams.postId).then(function (data) { $scope.currentPost = data });
 		}
 		else {
-			postServices.getLatestPost().then(function (data) { $scope.currentPost = data });
+			postService.getLatestPost().then(function (data) { $scope.currentPost = data });
 		}
 
 	};

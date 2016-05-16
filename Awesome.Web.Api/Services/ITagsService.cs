@@ -1,9 +1,7 @@
 ﻿using Awesome.Entities;
 using Awesome.Web.Api.Models;
-using System;
+using Awesome.Web.Api.Models.Request;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Awesome.Web.Api.Services
@@ -13,5 +11,13 @@ namespace Awesome.Web.Api.Services
 		Task<List<TagItem>> GetPostTags(int postId);
 
 		List<Tag> GetTagsById(List<int> tags);
+
+		Task<List<TagItem>> SearchTags(TagSearchRequest tagSearchRequest);
+
+		Task<int> AddTag(TagUpdateRequest request);
+
+		Task<int> EditTag(TagUpdateRequest request);
+
+		Task<int> DeleteTag(int tagId);
 	}
 }
