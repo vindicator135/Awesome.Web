@@ -36,7 +36,9 @@
 			$scope.tags = data;
 		});
 
-		$scope.recentComments = getRecentComments();
+		getRecentComments().then(function (data) {
+			$scope.recentComments = data;
+		});
 
 		$scope.searchPosts = searchPosts;
 

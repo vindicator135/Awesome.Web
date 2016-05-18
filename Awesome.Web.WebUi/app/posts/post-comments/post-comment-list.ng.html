@@ -2,12 +2,12 @@
 <div class="blog-comment-main xs-no-padding-top">
 	<h5 class="widget-title">Post Comments</h5>
 	<div class="blog-comment" ng-repeat="comment in comments">
-		<a class="comment-avtar"><img ng-src="{{comment.avatarUrl}}" alt=""></a>
+		<a class="comment-avtar"><img ng-src="{{comment.AvatarUrl}}" alt=""></a>
 		<div class="comment-text overflow-hidden position-relative">
-			<p class="blog-date no-padding-top"><a href="#">{{comment.userName}}</a>, {{comment.Date}} <a href="#addcomment" class="comment-reply inner-link">Reply</a></p>
+			<p class="blog-date no-padding-top"><a href="#">{{comment.CreatedByName}}</a>, {{comment.DisplayCreated}} <a href="#addcomment" class="comment-reply inner-link">Reply</a></p>
 			<p>{{comment.Content}}</p>
 		</div>
 	</div>
 </div>
-<add-post-comment comments="comments" post-id="{{postId}}" title="{{title}}"></add-post-comment>
+<add-post-comment comments="comments" post-id="postId"></add-post-comment>
 

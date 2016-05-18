@@ -6,7 +6,7 @@
 
 			authService.getBearerToken().then(function (token) {
 				var restConfig = {
-					authorization: 'Bearer ' + token
+					headers: { 'Authorization': 'Bearer ' + token }
 				};
 
 				$http.post(config.apiBaseUrl + url, data, restConfig).then(function (response) {
@@ -48,7 +48,7 @@
 
 			authService.getBearerToken().then(function (token) {
 				var restConfig = {
-					authorization: 'Bearer ' + token
+					headers: { 'Authorization': 'Bearer ' + token }
 				};
 
 				$http.delete(config.apiBaseUrl + url, restConfig).then(function (response) {
@@ -69,7 +69,7 @@
 
 			authService.getBearerToken().then(function (token) {
 				var restConfig = {
-					authorization: 'Bearer ' + token
+					headers: { 'Authorization': 'Bearer ' + token }
 				};
 
 				$http.put(config.apiBaseUrl + url, data, restConfig).then(function (response) {

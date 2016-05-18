@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Awesome.Web.Api.Models.Request
+﻿namespace Awesome.Web.Api.Models.Request
 {
 	public class TagUpdateRequest
 	{
@@ -13,6 +8,4 @@ namespace Awesome.Web.Api.Models.Request
 		public string LastUpdatedBy { get; set; }
 		public string CreatedBy { get; set; }
 	}
-
-
 }

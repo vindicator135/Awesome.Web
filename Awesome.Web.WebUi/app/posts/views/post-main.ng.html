@@ -43,7 +43,7 @@
 					<div class="widget-body">
 						<ul class="widget-posts">
 							<li class="clearfix" ng-repeat="comment in recentComments">
-								<div class="widget-posts-details"><a ui-sref="posts.detail({postId: comment.PostId})">{{comment.title}}</a> {{comment.userName}} | {{comment.Date}}</div>
+								<div class="widget-posts-details"><a ui-sref="posts.detail({postId: comment.PostId})">{{comment.Title}}</a> {{comment.CreatedByName}} | {{comment.DisplayCreated}}</div>
 							</li>
 						</ul>
 					</div>

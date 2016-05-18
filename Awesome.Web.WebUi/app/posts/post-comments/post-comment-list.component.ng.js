@@ -3,13 +3,21 @@
 	return {
 		restrict: 'E',
 		scope: {
-			postId: '@'
+			postId: '='
 		},
 		templateUrl: 'app/posts/post-comments/post-comment-list.ng.html',
 		link: function (scope, elem, attrs) {
-			var details = commentService.getCommentsByPostId(scope.postId);
-			scope.comments = details.comments;
-			scope.title = details.title;
+			scope.comments = [];
+			
+			scope.$watch('postId', function () {
+				if (scope.postId != undefined)
+					commentService.getCommentsByPostId(scope.postId).then(function (data) {
+						for (var i = 0; i < data.length; i++) {
+							scope.comments.push(data[i]);
+						}
+					});
+			});
+			
 		}
 	}
 });

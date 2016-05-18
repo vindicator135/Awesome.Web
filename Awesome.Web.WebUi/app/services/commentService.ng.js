@@ -1,4 +1,4 @@
-﻿angular.module("AwesomeWeb").factory("commentService", ['postService', 'httpService', '$log', function (postService, httpService, $log) {
+﻿angular.module("AwesomeWeb").factory("commentService", ['postService', 'httpService', '$log', '$q', function (postService, httpService, $log, $q) {
 	
 	var mockComments = [
 		{ PostId: 1, Title: "A journey to awesome", AvatarUrl: "http://placehold.it/300x300", UserName: "Mark Cate", Date: "April 30, 2016", Content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
@@ -10,23 +10,31 @@
 	// TODO: Call http API to get recent comments
 	return {
 		getRecentComments: function () {
-			return mockComments;
-		},
-		addComment: function (comment) {
-			mockComments.push(comment);
-		},
-		getCommentsByPostId: function (postId) {
-			var details = { PostId: postId };
+			var deferred = $q.defer();
 
-			details.comments =  _.filter(mockComments, function (c) {
-				return c.PostId == postId;
+			httpService.get('/api/comments/top/5').then(function (response) {
+				deferred.resolve(response.data);
 			});
 
-			if (details.comments.length > 0) {
-				details.Title = details.comments[0].Title;
-			}
+			return deferred.promise;
+		},
+		addComment: function (comment) {
+			var deferred = $q.defer();
 
-			return details;
+			httpService.post('/api/comments', comment).then(function (response) {
+				deferred.resolve(response.data);
+			});
+
+			return deferred.promise;
+		},
+		getCommentsByPostId: function (postId) {
+			var deferred = $q.defer();
+
+			httpService.get('/api/comments?PostId=' + postId).then(function (response) {
+				deferred.resolve(response.data);
+			});
+
+			return deferred.promise;
 		}
 	};
 

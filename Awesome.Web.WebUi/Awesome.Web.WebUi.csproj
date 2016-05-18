@@ -44,6 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app\services\tagService.ng.js" />
+    <Content Include="js\moment.min.js" />
     <Content Include="packages.config" />
     <Content Include="fonts\et-line.eot" />
     <Content Include="fonts\et-line.ttf" />

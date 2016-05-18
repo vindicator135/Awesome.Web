@@ -165,6 +165,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\AwesomeHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Factory\AwesomeContextFactory.cs" />
@@ -174,7 +175,9 @@
     <Compile Include="Models\AddChallengeOnUnauthorizedResult.cs" />
     <Compile Include="Models\ErrorCode.cs" />
     <Compile Include="Models\Request\BaseSearchRequest.cs" />
+    <Compile Include="Models\Request\CommentSearchRequest.cs" />
     <Compile Include="Models\Request\TagUpdateRequest.cs" />
+    <Compile Include="Models\Request\CommentUpdateRequest.cs" />
     <Compile Include="Models\Request\TagSearchRequest.cs" />
     <Compile Include="Models\Request\PostSearchRequest.cs" />
     <Compile Include="Models\CommentItem.cs" />

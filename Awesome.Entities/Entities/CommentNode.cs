@@ -8,11 +8,11 @@ namespace Awesome.Entities
 {
 	public class CommentNode
 	{
-		public Guid AncestorId { get; set; }
+		public int AncestorId { get; set; }
 
 		public virtual Comment Ancestor { get; set; }
 
-		public Guid OffspringId { get; set; }
+		public int OffspringId { get; set; }
 
 		public virtual Comment Offspring { get; set; }
 
