@@ -1,5 +1,5 @@
-﻿using Awesome.Entities.Entities;
-using Awesome.Web.Api.Factory;
+﻿using Awesome.Entities;
+using Awesome.Entities.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;

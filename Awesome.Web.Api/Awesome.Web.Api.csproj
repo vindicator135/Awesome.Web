@@ -168,7 +168,6 @@
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Factory\AwesomeContextFactory.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AuthenticationFailureResult.cs" />
@@ -220,6 +219,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.services.ajourneytoawesome.com - Web Deploy.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>

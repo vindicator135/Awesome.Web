@@ -1,11 +1,11 @@
-﻿using Awesome.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Awesome.Web.Api.Factory
+namespace Awesome.Entities
 {
 	public class AwesomeContextFactory : IDbContextFactory<AwesomeEntities>
 	{
@@ -14,5 +14,4 @@ namespace Awesome.Web.Api.Factory
 			return new AwesomeEntities("DefaultConnection");
 		}
 	}
-
 }

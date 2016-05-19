@@ -10,7 +10,6 @@ using System.Web.Routing;
 using Awesome.Entities;
 using Awesome.Web.Api.Services;
 using System.Data.Entity;
-using Awesome.Web.Api.Factory;
 using System.Data.Entity.Infrastructure;
 
 namespace Awesome.Web.Api

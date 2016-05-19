@@ -1,31 +1,32 @@
-﻿using Awesome.Entities.Entities;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-
-namespace Awesome.Entities
+namespace Awesome.Entities.Migrations
 {
-	public class DropCreateDatabaseIfModelChangesInitializer : DropCreateDatabaseIfModelChanges<AwesomeEntities>
-	{
-		protected override void Seed(AwesomeEntities context)
-		{
-			Seeder.Seed(context);
-		}
-	}
+	using Entities;
+	using Microsoft.AspNet.Identity.EntityFramework;
+	using System;
+	using System.Collections.Generic;
+	using System.Data.Entity;
+	using System.Data.Entity.Migrations;
+	using System.Linq;
 
-	internal static class Seeder
-	{
-		public static void Seed(AwesomeEntities context)
-		{
+	internal sealed class Configuration : DbMigrationsConfiguration<Awesome.Entities.AwesomeEntities>
+    {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = false;
+        }
 
+        protected override void Seed(Awesome.Entities.AwesomeEntities context)
+        {
+			//  This method will be called after migrating to the latest version.
+
+			//  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+			//  to avoid creating duplicate seed data. E.g.
+			//
 			var user = new ApplicationUser { UserName = "Stephen Cate", Email = "vindicator135@gmail.com" };
 
 			var userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
 
 			var userResult = userManager.CreateAsync(user, "Unknown_123").Result;
-
-			context.SaveChanges();
 
 			var tag1 = new Tag { TagId = 1, Created = DateTime.Now, Description = "The Land down under", Name = "Australia" };
 			context.Tags.Add(tag1);
@@ -66,7 +67,6 @@ namespace Awesome.Entities
 
 			context.Posts.Add(post);
 
-			context.SaveChanges();
 		}
 	}
 }

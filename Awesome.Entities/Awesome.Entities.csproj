@@ -82,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AwesomeContextFactory.cs" />
     <Compile Include="AwesomeEntities.cs" />
     <Compile Include="DbInitializer.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
@@ -96,6 +97,11 @@
     <Compile Include="Mappings\UserMapping.cs" />
     <Compile Include="Mappings\CommentMapping.cs" />
     <Compile Include="Mappings\CommentNodeMapping.cs" />
+    <Compile Include="Migrations\201605191851147_InitialMigration.cs" />
+    <Compile Include="Migrations\201605191851147_InitialMigration.Designer.cs">
+      <DependentUpon>201605191851147_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +111,11 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201605191851147_InitialMigration.resx">
+      <DependentUpon>201605191851147_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
