@@ -26,6 +26,7 @@
 	  	templateUrl: 'app/book/views/book-main.ng.html'})
 	  .state('book.countdown', {
 	  	url: '/comingsoon',
+	  	controller: 'ComingSoonCtrl',
 	  	templateUrl: 'app/book/views/coming-soon.ng.html'
 	  })
 	;

@@ -1,11 +1,11 @@
 ﻿<!doctype html>
 <html class="no-js" lang="en" ng-app="AwesomeWeb">
 <head>
-	<title>H-Code | Responsive & Multi-Purpose One/Multi Page Template</title>
-	<meta name="description" content="H-Code - A premium portfolio template from ThemeZaa">
-	<meta name="keywords" content="">
+	<title>A Journey To Awesome</title>
+	<meta name="description" content="A Journey To Awesome - a blog for migration, overseas employment, and motivition for pushing the dream abroad">
+	<meta name="keywords" content="migration,australia,canada,skilled,ielts,motivation,toefl,pte,usa,uk,ofw,overseas,student,foreign,motivation,inspiration,tips">
 	<meta charset="utf-8">
-	<meta name="author" content="ThemeZaa">
+	<meta name="author" content="Stephen Cate">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
 
 	<!-- favicon -->
@@ -34,6 +34,8 @@
 	<link rel="stylesheet" href="css/text-effect.css" />
 	<!-- hamburger menu  -->
 	<link rel="stylesheet" href="css/menu-hamburger.css" />
+	<!-- popups and dialogs-->
+	<link href="css/magnific-popup.css" rel="stylesheet" />
 	<!-- common -->
 	<link rel="stylesheet" href="css/style.css" />
 	<!-- responsive -->
@@ -44,6 +46,8 @@
 	<!--[if IE]>
 		<script src="js/html5shiv.js"></script>
 	<![endif]-->
+	<link href="css/custom/site.css" rel="stylesheet" />
+
 	<base href="/">
 </head>
 <body ng-controller="MainAppCtrl">
@@ -71,7 +75,6 @@
 					<ul>
 						<li><a ui-sref="posts.detail">Home</a></li>
 						<li><a ui-sref="book.countdown">Book</a></li>
-						<li><a ui-sref="posts.detail">Blog</a></li>
 						<li>About Me</li>
 					</ul>
 					<!-- end breadcrumb -->
@@ -138,6 +141,15 @@
 	<script src="js/underscore-min.js"></script>
 	<script src="js/ngstorage.min.js"></script>
 	<script src="js/moment.min.js"></script>
+	
+	<!-- ui.bootstrap-->
+	<script src="js/angular-ui-bootstrap/src/position/position.js"></script>
+	<script src="js/angular-ui-bootstrap/src/stackedMap/stackedMap.js"></script>
+	<script src="js/angular-ui-bootstrap/src/modal/modal.js"></script>
+	
+	<script src="js/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+	<script src="js/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+	
 
 	<!-- Angular: Application scripts-->
 	<script src="app/app.ng.js"></script>
@@ -152,8 +164,11 @@
 	<script src="app/posts/controllers/postCtrl.ng.js"></script>
 	<script src="app/posts/controllers/postDetailsCtrl.ng.js"></script>
 	<script src="app/posts/controllers/searchpostsctrl.ng.js"></script>
+	<script src="app/book/controllers/comingSoonCtrl.ng.js"></script>
+	<script src="app/book/controllers/thankYouCtrl.ng.js"></script>
 	<script src="app/posts/post-comments/post-comment-list.component.ng.js"></script>
 	<script src="app/posts/post-comments/add-post-comment.component.ng.js"></script>
+	<script src="app/controllers/errorController.ng.js"></script>
 
 	<!-- Angular: Services-->
 	<script src="app/services/authService.ng.js"></script>
@@ -161,5 +176,6 @@
 	<script src="app/services/commentservice.ng.js"></script>
 	<script src="app/services/postservice.ng.js"></script>
 	<script src="app/services/tagService.ng.js"></script>
+	<script src="app/services/marketingService.ng.js"></script>
 </body>
 </html>

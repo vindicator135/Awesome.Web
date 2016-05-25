@@ -35,6 +35,7 @@ namespace Awesome.Web.Api
 			builder.RegisterType<RatingsService>().As<IRatingsService>();
 			builder.RegisterType<TagsService>().As<ITagsService>();
 			builder.RegisterType<UsersService>().As<IUsersService>();
+			builder.RegisterType<MarketingService>().As<IMarketingService>();
 			builder.RegisterType<AwesomeContextFactory>().As<IDbContextFactory<AwesomeEntities>>();
 
 			//builder.RegisterType<AwesomeEntities>().As<AwesomeEntities>()

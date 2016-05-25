@@ -84,12 +84,14 @@
   <ItemGroup>
     <Compile Include="AwesomeContextFactory.cs" />
     <Compile Include="AwesomeEntities.cs" />
+    <Compile Include="Entities\CustomerRequest.cs" />
     <Compile Include="DbInitializer.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
     <Compile Include="Entities\ApplicationUserManager.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\CommentNode.cs" />
+    <Compile Include="Entities\Book.cs" />
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Entities\Rating.cs" />
     <Compile Include="Entities\Tag.cs" />
@@ -100,6 +102,22 @@
     <Compile Include="Migrations\201605191851147_InitialMigration.cs" />
     <Compile Include="Migrations\201605191851147_InitialMigration.Designer.cs">
       <DependentUpon>201605191851147_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605221955024_Book_And_Excerpt_Request.cs" />
+    <Compile Include="Migrations\201605221955024_Book_And_Excerpt_Request.Designer.cs">
+      <DependentUpon>201605221955024_Book_And_Excerpt_Request.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605222001438_Added_Book_Schema.cs" />
+    <Compile Include="Migrations\201605222001438_Added_Book_Schema.Designer.cs">
+      <DependentUpon>201605222001438_Added_Book_Schema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605222005105_add_book_seed_changed_to_AddOrUpdate.cs" />
+    <Compile Include="Migrations\201605222005105_add_book_seed_changed_to_AddOrUpdate.Designer.cs">
+      <DependentUpon>201605222005105_add_book_seed_changed_to_AddOrUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605251926303_Customer_Request_changes.cs" />
+    <Compile Include="Migrations\201605251926303_Customer_Request_changes.Designer.cs">
+      <DependentUpon>201605251926303_Customer_Request_changes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,6 +133,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605191851147_InitialMigration.resx">
       <DependentUpon>201605191851147_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605221955024_Book_And_Excerpt_Request.resx">
+      <DependentUpon>201605221955024_Book_And_Excerpt_Request.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605222001438_Added_Book_Schema.resx">
+      <DependentUpon>201605222001438_Added_Book_Schema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605222005105_add_book_seed_changed_to_AddOrUpdate.resx">
+      <DependentUpon>201605222005105_add_book_seed_changed_to_AddOrUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605251926303_Customer_Request_changes.resx">
+      <DependentUpon>201605251926303_Customer_Request_changes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

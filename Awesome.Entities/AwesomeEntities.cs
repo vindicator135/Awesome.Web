@@ -34,6 +34,10 @@ namespace Awesome.Entities
 
 		public DbSet<Rating> Ratings { get; set; }
 
+		public DbSet<CustomerRequest> CustomerRequest { get; set; }
+
+		public DbSet<Book> Books { get; set; }
+
 		public DbSet<TEntity> Get<TEntity>() where TEntity : class
 		{
 			var t = this;
