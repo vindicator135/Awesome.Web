@@ -119,6 +119,14 @@
     <Compile Include="Migrations\201605251926303_Customer_Request_changes.Designer.cs">
       <DependentUpon>201605251926303_Customer_Request_changes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605311853460_AddedName_RequestedAd_CustomerRequest.cs" />
+    <Compile Include="Migrations\201605311853460_AddedName_RequestedAd_CustomerRequest.Designer.cs">
+      <DependentUpon>201605311853460_AddedName_RequestedAd_CustomerRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605312032049_added_api_status_fields.cs" />
+    <Compile Include="Migrations\201605312032049_added_api_status_fields.Designer.cs">
+      <DependentUpon>201605312032049_added_api_status_fields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -145,6 +153,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605251926303_Customer_Request_changes.resx">
       <DependentUpon>201605251926303_Customer_Request_changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605311853460_AddedName_RequestedAd_CustomerRequest.resx">
+      <DependentUpon>201605311853460_AddedName_RequestedAd_CustomerRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605312032049_added_api_status_fields.resx">
+      <DependentUpon>201605312032049_added_api_status_fields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

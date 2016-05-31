@@ -103,6 +103,10 @@
       <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.3.4\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
@@ -149,9 +153,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Http.WebHost">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
@@ -168,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\AwesomeHelper.cs" />
+    <Compile Include="Common\SendInBlue.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\MarketingController.cs" />
@@ -194,22 +196,23 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Services\BaseService.cs" />
-    <Compile Include="Services\IAwesomeContext.cs" />
-    <Compile Include="Services\IMarketingService.cs" />
+    <Compile Include="Services\Interfaces\IAwesomeContext.cs" />
+    <Compile Include="Services\Interfaces\IMarketingService.cs" />
+    <Compile Include="Services\Interfaces\IEmailService.cs" />
     <Compile Include="Services\MarketingService.cs" />
     <Compile Include="Services\PostsService.cs" />
     <Compile Include="Services\CommentsService.cs" />
-    <Compile Include="Services\ICommentsService.cs" />
-    <Compile Include="Services\IPostsService.cs" />
+    <Compile Include="Services\Interfaces\ICommentsService.cs" />
+    <Compile Include="Services\Interfaces\IPostsService.cs" />
     <Compile Include="Models\LoginRequest.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IRatingsService.cs" />
-    <Compile Include="Services\ITagsService.cs" />
+    <Compile Include="Services\Interfaces\IRatingsService.cs" />
+    <Compile Include="Services\Interfaces\ITagsService.cs" />
     <Compile Include="Models\TagItem.cs" />
-    <Compile Include="Services\IUsersService.cs" />
+    <Compile Include="Services\Interfaces\IUsersService.cs" />
     <Compile Include="Services\RatingsService.cs" />
     <Compile Include="Models\UserItem.cs" />
     <Compile Include="Models\UserProfileItem.cs" />

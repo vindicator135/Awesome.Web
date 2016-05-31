@@ -18,21 +18,23 @@
 				<div class="row">
 					<div class="col-md-12 col-sm-12 text-center">
 						<span class="notify-me-text text-uppercase"><strong class="black-text">Meanwhile, I'd like to give you a FREE excerpt of my book.</strong> 
-						<br>Click Send me a Free Copy below to receive your copy via email.<br /> To your success, <br /> Stephen </span>
+						<br>Just hit Subscibe & Send My Copy below to receive your copy via email.</span>
 					</div>
 				</div>
 				<div class="row">
-					<div ng-show="notifymeform.userEmail.$invalid  && submitted" class="alert alert-warning col-md-7 col-sm-12 text-center center-col" role="alert">
+					<div ng-show="notifymeform.userEmail.$invalid  && submitted" class="alert alert-danger col-md-7 col-sm-12 text-center center-col" role="alert">
 						<i class="icon-caution"></i>
 						<span>Please enter a valid email.</span>
 					</div>
 				</div>
+				
 				<div class="row">
-					<div class="col-md-7 col-sm-12 text-center center-col">
+					<div class="col-md-8 col-sm-12 text-center center-col">
 						<form name="notifymeform" ng-submit="sendCopyToEmail()" novalidate>
 							<div id="success" class="no-margin-lr"></div>
-							<input placeholder="Enter your email address" name="userEmail" type="email" ng-model="userEmail"  required class="form-control email-add">
-							<button name="notifyme-button" id="notifyme-button" class="highlight-button btn btn-small no-margin"><span>Send me a free copy</span></button>
+							<input placeholder="Enter your nickname" name="userName" type="text" ng-model="userName" class="form-control">
+							<input placeholder="Enter your email address" name="userEmail" type="email" ng-model="userEmail" required class="form-control email-add">
+							<button name="notifyme-button" id="notifyme-button" class="highlight-button btn btn-small no-margin"><span>Subscribe & Send My Copy</span></button>	
 						</form>
 					</div>
 				</div>

@@ -3,7 +3,7 @@
 	$scope.submitted = false;
 	$scope.sendCopyToEmail = function () {
 
-		var request = { BookId: 1, Email: $scope.userEmail };
+		var request = { BookId: 1, Email: $scope.userEmail, Name: $scope.userName };
 
 		if ($scope.notifymeform.userEmail.$valid) {
 

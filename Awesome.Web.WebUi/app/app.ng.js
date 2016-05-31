@@ -2,7 +2,7 @@
 
 angular.module('AwesomeWeb').constant('config', {
 	apiCredentials: 'userName=Stephen Cate&password=Unknown_123&grant_type=password',
-	apiBaseUrl: 'http://services.ajourneytoawesome.com'
+	apiBaseUrl: 'http://localhost/AwesomeWeb'
 });//http://services.ajourneytoawesome.com,http://localhost/AwesomeWeb
 
 function onReady() {

@@ -8,6 +8,7 @@ namespace Awesome.Web.Api.Models.Request
 	public class ExcerptRequest
 	{
 		public int BookId { get; set; }
+		public string Name { get; set; }
 		public string Email { get; set; }
 	}
 }
