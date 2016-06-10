@@ -55,38 +55,38 @@
 	
 	<!--end navigation panel -->
 	<!-- head section -->
-	<section class="page-title page-title-small bg-gray">
+	<nav class="navbar navbar-default navbar-fixed-top nav-transparent overlay-nav sticky-nav nav-border-bottom no-transition" role="navigation">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
-					<div class="col-md-3 pull-left">
-						<a href="index.html"><img alt="" src="images/custom/main-logo-300x102.png"></a>
-					</div>
-					<div  class="col-md-6 pull-left">
-						<!--<h1 class="black-text">A Journey To Awesome</h1>-->
-					</div>
-					
-					<!-- page title -->
-					
-					<!-- end page title -->
+				<!-- logo -->
+				<div class="col-md-3 col-sm-3 col-xs-6"><a class="logo-light" href="index.html"><img alt="" src="images/custom/main-logo-300x102.png" class="logo" /></a><a class="logo-dark" href="index.html"><img alt="" src="images/logo-light.png" class="logo" /></a></div>
+				<!-- end logo -->
+				<!-- toggle navigation -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 				</div>
-				<div class="col-md-4 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
-					<!-- breadcrumb -->
-					<ul>
-						<li><a ui-sref="posts.detail">Home</a></li>
-						<li><a ui-sref="book.countdown">Book</a></li>
-						<li>About Me</li>
-					</ul>
-					<!-- end breadcrumb -->
+				<!-- end toggle navigation -->
+				<div class="col-md-9 text-right">
+					<div class="navbar-collapse collapse">
+						<!-- main menu -->
+						<ul class="nav navbar-nav navbar-right">
+							<li><a ui-sref="posts.detail">Home</a></li>
+							<li><a ui-sref="books">Books</a></li>
+							<li><a href="#">About Me</a></li>
+						</ul>
+						<!-- end main menu -->
+					</div>
 				</div>
 			</div>
 		</div>
-	</section>
+	</nav>
 	<!-- end head section -->
 	<!-- content section -->
 	<ui-view>
 
 	</ui-view>
+	<!-- slider -->
+
 	<!-- end content section -->
 
 	<!-- end footer -->
@@ -169,6 +169,7 @@
 	<script src="app/posts/post-comments/post-comment-list.component.ng.js"></script>
 	<script src="app/posts/post-comments/add-post-comment.component.ng.js"></script>
 	<script src="app/controllers/errorController.ng.js"></script>
+	<script src="app/book/controllers/mainBookCtrl.ng.js"></script>
 
 	<!-- Angular: Services-->
 	<script src="app/services/authService.ng.js"></script>

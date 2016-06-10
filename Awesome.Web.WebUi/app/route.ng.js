@@ -21,13 +21,20 @@
 	  	templateUrl: 'app/posts/views/search-list.ng.html',
 		controller: 'SearchPostsCtrl'
 	  })
-	  .state('book', {
-	  	url: '/book',
-	  	templateUrl: 'app/book/views/book-main.ng.html'})
-	  .state('book.countdown', {
+	  .state('books', {
+	  	url: '/books',
+	  	templateUrl: 'app/book/views/book-main.ng.html',
+		redirectTo: 'books.makingthebigmove'
+	  })
+	  .state('books.countdown', {
 	  	url: '/comingsoon',
 	  	controller: 'ComingSoonCtrl',
 	  	templateUrl: 'app/book/views/coming-soon.ng.html'
+	  })
+	  .state('books.makingthebigmove', {
+	  	url: '/making-the-big-move',
+	  	controller: 'MainBookCtrl',
+	  	templateUrl: 'app/book/views/making-the-big-move.ng.html'
 	  })
 	;
 

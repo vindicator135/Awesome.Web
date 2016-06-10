@@ -1,0 +1,212 @@
+﻿<!-- slider -->
+<section id="myCarousel" class="carousel slide carousel-slide">
+	<!-- slider indicators -->
+	<ol class="carousel-indicators xs-indicators-black">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+	</ol>
+	<!-- end slider indicators -->
+	<!-- slider images -->
+	<div class="carousel-inner">
+		<!-- slider item -->
+		<div class="item active full-screen">
+			<!-- Set the first background image using inline CSS below. -->
+			<div class="fill book-splash-background" style=""></div>
+			<div class="opacity-full bg-white display-none xs-display-block"></div>
+			<div class="container">
+				<div class="row">
+					<div class="container full-screen position-relative">
+						<div class="slider-typography">
+							<div class="slider-text-middle-main" ng-show="showMainOptions">
+								<div class="slider-text-middle slider-text-middle6 padding-left-right-px wow fadeInUp slider-text">
+									<div class="slider-text-pull-right col-md-3 col-sm-5 col-xs-6 text-left animated fadeInUp no-padding">
+										<h1>Making the Big Move</h1>
+										<div class="separator-line bg-yellow no-margin-lr"></div>
+										<span>How to make up your mind on moving abroad</span>
+
+										<!--<form class="paypal-highligh-button btn inner-link no-margin-lr no-margin-bottom" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+											<input type="hidden" name="cmd" value="_s-xclick">
+											<input type="hidden" name="hosted_button_id" value="ZCNLJGZSW58PU">
+											<input type="image" class="paypal-img-button" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+										</form>-->
+										<a class="highlight-button btn inner-link no-margin-lr no-margin-bottom" ng-click="displayBuyingOptionsSection()">Buy Now</a>
+										<a class="highlight-button btn inner-link no-margin-lr no-margin-bottom" ng-click="displayFreeExcerptSection()">Get Free Chapters</a>
+									</div>
+								</div>
+							</div>
+							<div class="slider-text-middle-main" ng-show="showBuyingOptionsSection">
+								<div class="slider-text-middle slider-text-middle6 padding-left-right-px wow fadeInUp slider-text">
+									<div class="slider-text-pull-right col-md-3 col-sm-12 col-xs-12 text-left animated fadeInUp no-padding">
+										<h1>Making the Big Move</h1>
+										<div class="separator-line bg-yellow no-margin-lr"></div>
+										<span>Pay through Credit Card</span>
+										<form class="paypal-highligh-button btn inner-link no-margin-lr no-margin-bottom" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+											<input type="hidden" name="cmd" value="_s-xclick">
+											<input type="hidden" name="hosted_button_id" value="ZCNLJGZSW58PU">
+											<input type="image" class="paypal-img-button" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+										</form>
+										<div class="separator-line bg-yellow no-margin-lr"></div>
+										<span>Or, through Bank Deposit</span>
+										<ol class="flat-list text-med">
+											<li>
+												Deposit 1,000 PHP to the following account - Bank: BPI, Account Name: Mark Stephen Cate, Account #:0999102689
+											</li>
+											<li>
+												Email a copy of the deposit slip purchases@ajourneytoawesome.com and we'll send you your copy within 24 hours.
+											</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+							<div class="slider-text-middle-main" ng-show="showFreeExcerptSection">
+								<div class="slider-text-middle slider-text-middle6 padding-left-right-px wow fadeInUp slider-text">
+									<div class="slider-text-pull-right col-md-3 col-sm-12 col-xs-12 text-left animated fadeInUp no-padding">
+										<h1>Making the Big Move</h1>
+										<div class="separator-line bg-yellow no-margin-lr"></div>
+										<span>How to make up your mind on moving abroad</span>
+										<div class="separator-line bg-yellow no-margin-lr"></div>
+										<div ng-show="notifymeform.userEmail.$invalid  && submitted" class="alert alert-danger" role="alert">
+											<i class="icon-caution"></i>
+											<span>Please enter a valid email.</span>
+										</div>
+										<span>*Please fill in the fields</span>
+										<form name="notifymeform" ng-submit="sendCopyToEmail()" novalidate>
+											<input placeholder="Enter your nickname" name="userName" type="text" ng-model="userName" class="form-control">
+											<input placeholder="Enter your email address" name="userEmail" type="email" ng-model="userEmail" required class="form-control email-add">
+											<button name="notifyme-button" id="notifyme-button" class="highlight-button btn btn-small no-margin"><span>Subscribe & Send My Copy</span></button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end slider item -->
+		<!-- slider item -->
+		<div class="item full-screen">
+			<!-- Set the first background image using inline CSS below. -->
+			<div class="fill" style="background-image:url('http://placehold.it/1920x1080');"></div>
+			<div class="opacity-full bg-white display-none xs-display-block"></div>
+			<div class="container">
+				<div class="row">
+					<div class="container full-screen position-relative">
+						<div class="slider-typography">
+							<div class="slider-text-middle-main">
+								<div class="slider-text-middle slider-text-middle6 padding-left-right-px wow fadeInUp slider-text">
+									<div class="col-md-3 col-sm-5 col-xs-6 text-left animated fadeInUp no-padding">
+										<h1>Digital Trend Challenges</h1>
+										<div class="separator-line bg-yellow no-margin-lr"></div>
+										<span>We believe in design, strategy and the ability of technology to transform organizations and lives.</span>
+										<a class="highlight-button btn inner-link no-margin-lr no-margin-bottom" href="#portfolio">Digital Marketing</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end slider item -->
+		<!-- slider item -->
+		<div class="item full-screen">
+			<!-- Set the first background image using inline CSS below. -->
+			<div class="fill" style="background-image:url('http://placehold.it/1920x1080');"></div>
+			<div class="opacity-full bg-white display-none xs-display-block"></div>
+			<div class="container">
+				<div class="row">
+					<div class="container full-screen position-relative">
+						<div class="slider-typography">
+							<div class="slider-text-middle-main">
+								<div class="slider-text-middle slider-text-middle6 padding-left-right-px wow fadeInUp slider-text">
+									<div class="col-md-3 col-sm-5 col-xs-6 text-left animated fadeInUp no-padding">
+										<h1>Innovative Businesses</h1>
+										<div class="separator-line bg-yellow no-margin-lr"></div>
+										<span>We create premium designs, technology, ecommerce, mobile & digital campaigns.</span>
+										<a class="highlight-button btn inner-link no-margin-lr no-margin-bottom" href="#blog">Go Emotions!</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end slider item -->
+	</div>
+	<!-- slider controls -->
+	<a class="left carousel-control" href="#myCarousel" data-slide="prev"> <img src="images/arrow-pre.png" alt="" /> </a> <a class="right carousel-control" href="#myCarousel" data-slide="next"> <img src="images/arrow-next.png" alt="" /> </a>
+	<!-- end slider controls -->
+</section>
+<footer>
+	<div class="bg-white footer-top">
+		<div class="container">
+			<div class="row margin-four">
+				<!-- phone -->
+				<div class="col-md-4 col-sm-4 text-center"><i class="icon-phone small-icon black-text"></i><h6 class="black-text margin-two no-margin-bottom">+61-XXX-XXX-XXX</h6></div>
+				<!-- end phone -->
+				<!-- address -->
+				<div class="col-md-4 col-sm-4 text-center"><i class="icon-map-pin small-icon black-text"></i><h6 class="black-text margin-two no-margin-bottom">Melbourne, Australia</h6></div>
+				<!-- end address -->
+				<!-- email -->
+				<div class="col-md-4 col-sm-4 text-center"><i class="icon-envelope small-icon black-text"></i><h6 class="margin-two no-margin-bottom"><a href="mailto:stephen.cate@ajourneytoawesome.com" class="black-text">stephen.cate@ajourneytoawesome.com</a></h6></div>
+				<!-- end email -->
+			</div>
+		</div>
+	</div>
+	<div class="container footer-middle">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 footer-link1">
+				<!-- headline -->
+				<h5>About The Site</h5>
+				<!-- end headline -->
+				<!-- text -->
+				<p class="footer-text">A Journey To Awesome&trade; is my blog for any topic around Migration, Overseas Work, and life abroad, in general. <br />The contents here are mostly my opinions, thoughts and writing. They may not be factual or applicable to everyone and should be understood as a matter of hearing one's opinion only. <br /> I respect copyright and make a conscious effort to attributing back if I make use of other's people content. So please feel free to share and link back to this site. <br /> I would look to hear from you! Please leave a comment or send me a note <a href="mailto:stephen.cate@ajourneytoawesome.com" class="black-text">stephen.cate@ajourneytoawesome.com</a><br />To your success,<br />Stephen</p>
+				<!-- end text -->
+			</div>
+		</div>
+		<div class="wide-separator-line bg-mid-gray no-margin-lr margin-three no-margin-bottom"></div>
+		<div class="row margin-four no-margin-bottom">
+			<div class="col-md-6 col-sm-12 sm-text-center sm-margin-bottom-four">
+				<!-- link -->
+				<ul class="list-inline footer-link text-uppercase">
+					<li>About</li>
+					<li><a ui-sref="posts.detail">Home</a></li>
+					<li><a ui-sref="books">Book</a></li>
+				</ul>
+				<!-- end link -->
+			</div>
+			<div class="col-md-6 col-sm-12 footer-social text-right sm-text-center">
+				<!-- social media link -->
+				<!--<a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+				<a target="_blank" href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+				<a target="_blank" href="https://plus.google.com"><i class="fa fa-google-plus"></i></a>
+				<a target="_blank" href="https://dribbble.com/"><i class="fa fa-dribbble"></i></a>
+				<a target="_blank" href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a>
+				<a target="_blank" href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>-->
+				<!-- end social media link -->
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid bg-dark-gray footer-bottom">
+		<div class="container">
+			<div class="row margin-three">
+				<!-- copyright -->
+				<div class="col-md-6 col-sm-6 col-xs-12 copyright text-left letter-spacing-1 xs-text-center xs-margin-bottom-one">
+					&copy;2016 A Journey To Awesome is powered with HTML5 & Bootstrap, AngularJS, .Net technologies amongst other things... and is programmed by Stephen Cate
+				</div>
+				<!-- end copyright -->
+				<!-- logo -->
+				<div class="col-md-6 col-sm-6 col-xs-12 footer-logo text-right xs-text-center">
+					<a ui-sref="post.details"><img src="images/custom/main-logo-300x102-gray.png" alt="" /></a>
+				</div>
+				<!-- end logo -->
+			</div>
+		</div>
+	</div>
+	<!-- scroll to top -->
+	<a href="javascript:;" class="scrollToTop"><i class="fa fa-angle-up"></i></a>
+	<!-- scroll to top End... -->
+</footer>

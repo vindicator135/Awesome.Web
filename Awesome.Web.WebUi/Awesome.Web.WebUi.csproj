@@ -43,14 +43,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="app\book\controllers\mainBookCtrl.ng.js" />
     <Content Include="app\book\controllers\thankYouCtrl.ng.js" />
     <Content Include="app\book\controllers\comingSoonCtrl.ng.js" />
+    <Content Include="app\book\views\making-the-big-move.ng.html" />
     <Content Include="app\book\views\thank-you.ng.html" />
     <Content Include="app\controllers\errorController.ng.js" />
     <Content Include="app\services\marketingService.ng.js" />
     <Content Include="app\services\tagService.ng.js" />
     <Content Include="app\views\errors.ng.html" />
     <Content Include="css\custom\site.css" />
+    <Content Include="images\custom\book-splash-1920x1080.png" />
+    <Content Include="images\custom\book-splash-325x386.png" />
     <Content Include="images\custom\main-logo-300x102-gray.png" />
     <Content Include="js\angular-ui-bootstrap\dist\ui-bootstrap-csp.css" />
     <Content Include="js\angular-ui-bootstrap\dist\ui-bootstrap-tpls.js" />
