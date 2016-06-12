@@ -3,8 +3,6 @@
 	<!-- slider indicators -->
 	<ol class="carousel-indicators xs-indicators-black">
 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		<li data-target="#myCarousel" data-slide-to="1"></li>
-		<li data-target="#myCarousel" data-slide-to="2"></li>
 	</ol>
 	<!-- end slider indicators -->
 	<!-- slider images -->
@@ -40,14 +38,27 @@
 									<div class="slider-text-pull-right col-md-3 col-sm-12 col-xs-12 text-left animated fadeInUp no-padding">
 										<h1>Making the Big Move</h1>
 										<div class="separator-line bg-yellow no-margin-lr"></div>
-										<span>Pay through Credit Card</span>
-										<form class="paypal-highligh-button btn inner-link no-margin-lr no-margin-bottom" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+										<span>Secure Card Payments via PayPal&trade;</span>
+										<div class="separator-line bg-yellow no-margin-lr"></div>
+										<div ng-show="purchaseForm.customerEmail.$invalid" class="warning alert-warning" role="alert">
+											*** Please specify your email where we'll send your copy.
+										</div>
+										<div ng-show="purchaseForm.customerEmail.$valid" class="warning" alert-info" role="alert">
+											*** We'll send your copy to this email address
+										</div>
+										<form name="purchaseForm" ng-submit="sendCopyToEmail()" novalidate>
+											<input placeholder="Your email address" name="customerEmail" type="email" ng-model="customerEmail" class="form-control" required>
+										</form>
+										<form name="paypalForm" class="paypal-highligh-button btn inner-link no-margin-lr no-margin-bottom" 
+											  action="https://www.paypal.com/cgi-bin/webscr" method="post" 
+											  ng-show="purchaseForm.customerEmail.$valid">
+											<input type="hidden" name="email" value="{{customerEmail}}" />
 											<input type="hidden" name="cmd" value="_s-xclick">
 											<input type="hidden" name="hosted_button_id" value="ZCNLJGZSW58PU">
 											<input type="image" class="paypal-img-button" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 										</form>
 										<div class="separator-line bg-yellow no-margin-lr"></div>
-										<span>Or, through Bank Deposit</span>
+										<span>Via Bank Deposit (if in the Philippines)</span>
 										<ol class="flat-list text-med">
 											<li>
 												Deposit 1,000 PHP to the following account - Bank: BPI, Account Name: Mark Stephen Cate, Account #:0999102689
@@ -85,59 +96,9 @@
 			</div>
 		</div>
 		<!-- end slider item -->
-		<!-- slider item -->
-		<div class="item full-screen">
-			<!-- Set the first background image using inline CSS below. -->
-			<div class="fill" style="background-image:url('http://placehold.it/1920x1080');"></div>
-			<div class="opacity-full bg-white display-none xs-display-block"></div>
-			<div class="container">
-				<div class="row">
-					<div class="container full-screen position-relative">
-						<div class="slider-typography">
-							<div class="slider-text-middle-main">
-								<div class="slider-text-middle slider-text-middle6 padding-left-right-px wow fadeInUp slider-text">
-									<div class="col-md-3 col-sm-5 col-xs-6 text-left animated fadeInUp no-padding">
-										<h1>Digital Trend Challenges</h1>
-										<div class="separator-line bg-yellow no-margin-lr"></div>
-										<span>We believe in design, strategy and the ability of technology to transform organizations and lives.</span>
-										<a class="highlight-button btn inner-link no-margin-lr no-margin-bottom" href="#portfolio">Digital Marketing</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- end slider item -->
-		<!-- slider item -->
-		<div class="item full-screen">
-			<!-- Set the first background image using inline CSS below. -->
-			<div class="fill" style="background-image:url('http://placehold.it/1920x1080');"></div>
-			<div class="opacity-full bg-white display-none xs-display-block"></div>
-			<div class="container">
-				<div class="row">
-					<div class="container full-screen position-relative">
-						<div class="slider-typography">
-							<div class="slider-text-middle-main">
-								<div class="slider-text-middle slider-text-middle6 padding-left-right-px wow fadeInUp slider-text">
-									<div class="col-md-3 col-sm-5 col-xs-6 text-left animated fadeInUp no-padding">
-										<h1>Innovative Businesses</h1>
-										<div class="separator-line bg-yellow no-margin-lr"></div>
-										<span>We create premium designs, technology, ecommerce, mobile & digital campaigns.</span>
-										<a class="highlight-button btn inner-link no-margin-lr no-margin-bottom" href="#blog">Go Emotions!</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- end slider item -->
 	</div>
 	<!-- slider controls -->
-	<a class="left carousel-control" href="#myCarousel" data-slide="prev"> <img src="images/arrow-pre.png" alt="" /> </a> <a class="right carousel-control" href="#myCarousel" data-slide="next"> <img src="images/arrow-next.png" alt="" /> </a>
+	<!--<a class="left carousel-control" href="#myCarousel" data-slide="prev"> <img src="images/arrow-pre.png" alt="" /> </a> <a class="right carousel-control" href="#myCarousel" data-slide="next"> <img src="images/arrow-next.png" alt="" /> </a>-->
 	<!-- end slider controls -->
 </section>
 <footer>

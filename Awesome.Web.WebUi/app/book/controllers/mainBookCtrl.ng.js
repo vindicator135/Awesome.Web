@@ -1,4 +1,4 @@
-﻿angular.module("AwesomeWeb").controller("MainBookCtrl", function ($scope, $stateParams, $state, $uibModal, $log, marketingService) {
+﻿angular.module("AwesomeWeb").controller("MainBookCtrl", function ($scope, $stateParams, $state, $uibModal, $log, $window, marketingService) {
 	$scope.userEmail;
 	$scope.submitted = false;
 	$scope.showMainOptions = true;
@@ -32,6 +32,17 @@
 		
 	};
 
+	$scope.validatePurchaseEmail = function () {
+		var returnVal = true;
+
+		if ($scope.paypalForm.userEmail.$valid) {
+
+
+		}
+
+		return returnVal;
+	}
+	
 	$scope.displayBuyingOptionsSection = function () {
 		$scope.showMainOptions = false;
 		$scope.showFreeExcerptSection = false;

@@ -50,9 +50,7 @@ Table of contents
 	background-color: transparent;
 }
 
-.carousel-inner {
-	overflow: scroll;
-}
+
 
 @media (max-width: 640px) {
 	.notify-me-text {
@@ -67,6 +65,9 @@ Table of contents
 		background-image: url('../../../images/custom/book-splash-325x386.png');
 	}
 
+	.carousel-inner {
+		overflow: scroll;
+	}
 }
 @media (min-width: 1064px) {
 	.slider-text-pull-right {
