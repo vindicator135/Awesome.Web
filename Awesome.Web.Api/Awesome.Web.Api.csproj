@@ -171,11 +171,13 @@
     <Compile Include="Common\AwesomeHelper.cs" />
     <Compile Include="Common\SendInBlue.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\PayPalController.cs" />
     <Compile Include="Controllers\MarketingController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Filters\AwesomeWebExceptionFilter.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AuthenticationFailureResult.cs" />
@@ -243,7 +245,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Awesome.Entities\Awesome.Entities.csproj">

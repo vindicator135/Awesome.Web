@@ -9,7 +9,7 @@ namespace Awesome.Web.Api.Controllers
 {
 	[EnableCors(origins: "http://localhost:1999", headers: "*", methods: "*")]
 	[Authorize]
-	public class MarketingController : ApiController
+	public class MarketingController : BaseController
 	{
 		private IMarketingService _marketingService;
 

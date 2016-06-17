@@ -1,15 +1,19 @@
-﻿using System;
+﻿using NLog;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Awesome.Web.Api.Controllers
 {
-	public class PayPalController : ApiController
+	public class PayPalController : BaseController
 	{
 		public PayPalController()
 		{
-
 		}
 
 		[Route("IPN")]
@@ -45,16 +49,25 @@ namespace Awesome.Web.Api.Controllers
 				client.DefaultRequestHeaders.Accept.Clear();
 				client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
 
+				ServicePointManager.Expect100Continue = true;
+				ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+				ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+
 				//STEP 2 in the paypal protocol
 				//Send HTTP CODE 200
 				HttpResponseMessage response = client.PostAsJsonAsync("cgi-bin/webscr", "").Result;
+
+				_logger.Log(LogLevel.Info, $"01 - Sending the HTTP Code to PayPal response: {response.StatusCode.ToString() }");
 
 				if (response.IsSuccessStatusCode)
 				{
 					//STEP 3
 					//Send the paypal request back with _notify-validate
 					string rawRequest = response.Content.ReadAsStringAsync().Result;
+
 					rawRequest += "&cmd=_notify-validate";
+
+					_logger.Log(LogLevel.Info, $"02 - Sending the paypal request back with _notify-validate: { rawRequest }");
 
 					HttpContent content = new StringContent(rawRequest);
 
@@ -64,10 +77,127 @@ namespace Awesome.Web.Api.Controllers
 					{
 						responseState = response.Content.ReadAsStringAsync().Result;
 					}
+
+					_logger.Log(LogLevel.Info, $"03 - The paypal response : { responseState }");
 				}
 			}
 
 			return responseState;
+		}
+
+		//[Route("IPN2")]
+		//[HttpPost]
+		//public async Task<IHttpActionResult> IPN2()
+		//{
+		//	_logger.Log(LogLevel.Info, "Read the whole Request Payload...");
+		//	_logger.Log(LogLevel.Info, await Request.Content.ReadAsStringAsync());
+
+		//	var ipnDictionary = await Request.Content.ReadAsFormDataAsync();
+		//	//ipnDictionary.Add("cmd", "_notify-validate");
+
+		//	var isIpnValid = await ValidateIpnAsync(ipnDictionary.AllKeys.ToDictionary(t => t, u => ipnDictionary[u]));
+		//	if (isIpnValid)
+		//	{
+		//		//Database stuff
+		//	}
+		//	else
+		//	{
+		//		return BadRequest();
+		//	}
+
+		//	return Ok();
+		//}
+
+		//private async Task<bool> ValidateIpnAsync(IEnumerable<KeyValuePair<string, string>> ipn)
+		//{
+		//	var responseString = "INVALID";
+
+		//	using (var client = new HttpClient())
+		//	{
+		//		const string PayPalUrl = "https://www.sandbox.paypal.com/cgi-bin/webscr";// "https://www.paypal.com/cgi-bin/webscr";
+
+		//		// http://stackoverflow.com/questions/2859790/the-request-was-aborted-could-not-create-ssl-tls-secure-channel
+		//		ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+		//		// This is necessary in order for PayPal to not resend the IPN.
+		//		var paypalResponse = await client.PostAsync(PayPalUrl, new StringContent(string.Empty));
+
+		//		_logger.Log(LogLevel.Info, $"01 - Sending the HTTP Code to PayPal response: {paypalResponse.StatusCode.ToString() }");
+
+		//		var ipnNotifyFormsList = new List<KeyValuePair<string, string>>();
+
+		//		string keyValueLog = string.Empty;
+
+		//		foreach (var key in ipn)
+		//		{
+		//			 keyValueLog += $"Key: {key.Key}, Value: {key.Value} |";
+		//			ipnNotifyFormsList.Add(new KeyValuePair<string, string>(key.Key, key.Value));
+		//		}
+
+		//		ipnNotifyFormsList.Add(new KeyValuePair<string, string>("cmd", "_notify-validate"));
+
+		//		_logger.Log(LogLevel.Info, $"KeyValueLog: {keyValueLog}");
+
+		//		var response = await client.PostAsync(PayPalUrl, new FormUrlEncodedContent(ipnNotifyFormsList));
+
+		//		responseString = await response.Content.ReadAsStringAsync();
+
+		//		_logger.Log(LogLevel.Info, $"03 - The paypal response : { responseString }");
+
+		//		return (responseString == "VERIFIED");
+		//	}
+		//}
+
+		[Route("IPN2")]
+		[HttpPost]
+		public async Task<IHttpActionResult> Ipn2()
+		{
+			_logger.Log(LogLevel.Info, "01 - Read the whole Request Payload...");
+			var ipnDictionary = await Request.Content.ReadAsFormDataAsync();
+			_logger.Log(LogLevel.Info, ipnDictionary);
+
+			var ipn = ipnDictionary.AllKeys.ToDictionary(k => k, k => ipnDictionary[k]);
+			ipn.Add("cmd", "_notify-validate");
+
+			var isIpnValid = await ValidateIpnAsync(ipn);
+			if (isIpnValid)
+			{
+				//Database stuff
+			}
+			else
+			{
+				return BadRequest();
+			}
+
+			return Ok();
+		}
+
+		private async Task<bool> ValidateIpnAsync(IEnumerable<KeyValuePair<string, string>> ipn)
+		{
+			using (var client = new HttpClient())
+			{
+				const string PayPalUrl = "https://www.sandbox.paypal.com/cgi-bin/webscr";// "https://www.paypal.com/cgi-bin/webscr";
+
+				// http://stackoverflow.com/questions/2859790/the-request-was-aborted-could-not-create-ssl-tls-secure-channel
+				ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
+				// This is necessary in order for PayPal to not resend the IPN.
+				await client.PostAsync(PayPalUrl, new StringContent(string.Empty));
+
+				var request = new FormUrlEncodedContent(ipn);
+
+				var requestIpn = await request.ReadAsFormDataAsync();
+
+				_logger.Log(LogLevel.Info, requestIpn);
+
+				var response = await client.PostAsync(PayPalUrl, request);
+
+				var responseString = await response.Content.ReadAsStringAsync();
+
+				_logger.Log(LogLevel.Info, $"03 - The paypal response : { responseString }");
+
+				return (responseString == "VERIFIED");
+			}
 		}
 	}
 }

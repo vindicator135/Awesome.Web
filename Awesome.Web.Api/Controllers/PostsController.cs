@@ -16,7 +16,7 @@ namespace Awesome.Web.Api.Controllers
 {
 	[EnableCors(origins: "http://localhost:1999", headers: "*", methods: "*")]
 	[Authorize]
-	public class PostsController : ApiController
+	public class PostsController : BaseController
 	{
 		private IPostsService _postService;
 

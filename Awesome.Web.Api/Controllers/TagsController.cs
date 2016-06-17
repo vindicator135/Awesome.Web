@@ -16,7 +16,7 @@ namespace Awesome.Web.Api.Controllers
 {
 	[EnableCors(origins: "http://localhost:1999", headers: "*", methods: "*")]
 	[Authorize]
-	public class TagsController : ApiController
+	public class TagsController : BaseController
 	{
 		private ITagsService _tagService;
 

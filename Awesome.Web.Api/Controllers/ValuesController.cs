@@ -5,11 +5,11 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace WebApplication1.Controllers
+namespace Awesome.Web.Api.Controllers
 {
     [Authorize]
-    public class ValuesController : ApiController
-    {
+    public class ValuesController : BaseController
+	{
         // GET api/values
         public IEnumerable<string> Get()
         {
