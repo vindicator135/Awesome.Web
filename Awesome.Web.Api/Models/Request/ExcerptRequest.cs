@@ -10,5 +10,6 @@ namespace Awesome.Web.Api.Models.Request
 		public int BookId { get; set; }
 		public string Name { get; set; }
 		public string Email { get; set; }
+		public string RequestedBy { get; set; }
 	}
 }

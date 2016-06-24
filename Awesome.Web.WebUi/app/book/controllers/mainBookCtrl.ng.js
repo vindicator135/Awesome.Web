@@ -6,7 +6,7 @@
 	$scope.showFreeExcerptSection = false;
 	$scope.sendCopyToEmail = function () {
 
-		var request = { BookId: 1, Email: $scope.userEmail, Name: $scope.userName };
+		var request = { BookId: 1, Email: $scope.userEmail, Name: $scope.userName, RequestedBy: "Stephen Cate" };
 
 		if ($scope.notifymeform.userEmail.$valid) {
 
@@ -31,6 +31,10 @@
 			 
 		
 	};
+
+	$scope.validateEmail = function () {
+
+	}
 
 	$scope.validatePurchaseEmail = function () {
 		var returnVal = true;

@@ -84,6 +84,8 @@
   <ItemGroup>
     <Compile Include="AwesomeContextFactory.cs" />
     <Compile Include="AwesomeEntities.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\PaypalTransaction.cs" />
     <Compile Include="Entities\CustomerRequest.cs" />
     <Compile Include="DbInitializer.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
@@ -95,6 +97,8 @@
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Entities\Rating.cs" />
     <Compile Include="Entities\Tag.cs" />
+    <Compile Include="Enumerations\RequestType.cs" />
+    <Compile Include="Enumerations\SendInBlueList.cs" />
     <Compile Include="Mappings\PostMapping.cs" />
     <Compile Include="Mappings\UserMapping.cs" />
     <Compile Include="Mappings\CommentMapping.cs" />
@@ -126,6 +130,14 @@
     <Compile Include="Migrations\201605312032049_added_api_status_fields.cs" />
     <Compile Include="Migrations\201605312032049_added_api_status_fields.Designer.cs">
       <DependentUpon>201605312032049_added_api_status_fields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606181158035_Added_Customer_Normalization_PayPalTransaction.cs" />
+    <Compile Include="Migrations\201606181158035_Added_Customer_Normalization_PayPalTransaction.Designer.cs">
+      <DependentUpon>201606181158035_Added_Customer_Normalization_PayPalTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606181321411_Added_Transaction_fields_for_more_paypal_information.cs" />
+    <Compile Include="Migrations\201606181321411_Added_Transaction_fields_for_more_paypal_information.Designer.cs">
+      <DependentUpon>201606181321411_Added_Transaction_fields_for_more_paypal_information.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,6 +171,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605312032049_added_api_status_fields.resx">
       <DependentUpon>201605312032049_added_api_status_fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606181158035_Added_Customer_Normalization_PayPalTransaction.resx">
+      <DependentUpon>201606181158035_Added_Customer_Normalization_PayPalTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606181321411_Added_Transaction_fields_for_more_paypal_information.resx">
+      <DependentUpon>201606181321411_Added_Transaction_fields_for_more_paypal_information.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

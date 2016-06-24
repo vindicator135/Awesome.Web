@@ -38,6 +38,10 @@ namespace Awesome.Entities
 
 		public DbSet<Book> Books { get; set; }
 
+		public DbSet<Customer> Customers { get; set; }
+
+		public DbSet<PaypalTransaction> Transactions { get; set; }
+
 		public DbSet<TEntity> Get<TEntity>() where TEntity : class
 		{
 			var t = this;

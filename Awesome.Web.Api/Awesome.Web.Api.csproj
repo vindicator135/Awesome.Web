@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\AwesomeHelper.cs" />
+    <Compile Include="Common\SendInBlue.AwesomeWeb.cs" />
     <Compile Include="Common\SendInBlue.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="Services\Interfaces\IAwesomeContext.cs" />
     <Compile Include="Services\Interfaces\IMarketingService.cs" />
     <Compile Include="Services\Interfaces\IEmailService.cs" />
+    <Compile Include="Services\Interfaces\ITransactionService.cs" />
     <Compile Include="Services\MarketingService.cs" />
     <Compile Include="Services\PostsService.cs" />
     <Compile Include="Services\CommentsService.cs" />
@@ -219,6 +221,7 @@
     <Compile Include="Services\RatingsService.cs" />
     <Compile Include="Models\UserItem.cs" />
     <Compile Include="Models\UserProfileItem.cs" />
+    <Compile Include="Services\TransactionService.cs" />
     <Compile Include="Services\TagsService.cs" />
     <Compile Include="Services\UsersService.cs" />
     <Compile Include="Startup.cs" />

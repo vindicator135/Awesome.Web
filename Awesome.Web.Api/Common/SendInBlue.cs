@@ -10,7 +10,7 @@ using System.Web;
 
 namespace Awesome.Web.Api.Common
 {
-	public class SendInBlue
+	public partial class SendInBlue
 	{
 		public string base_url = "https://api.sendinblue.com/v2.0/";
 		public string accessId = "";
