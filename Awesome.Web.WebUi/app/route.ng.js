@@ -36,6 +36,10 @@
 	  	controller: 'MainBookCtrl',
 	  	templateUrl: 'app/book/views/making-the-big-move.ng.html'
 	  })
+	  .state('books.thankyou', {
+	  	url: '/thankyou',
+	  	templateUrl: 'app/book/views/thank-you-purchase.ng.html'
+	  })
 	;
 
 	$urlRouterProvider
