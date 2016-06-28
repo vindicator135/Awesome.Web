@@ -69,6 +69,7 @@ Table of contents
 		overflow: scroll;
 	}
 }
+
 @media (min-width: 1064px) {
 	.slider-text-pull-right {
 		float: right !important;
@@ -76,5 +77,9 @@ Table of contents
 
 	.book-splash-background {
 		background-image: url('../../../images/custom/book-splash-amazon-1920x1080.png');
+	}
+
+	.carousel {
+		height: 1000px;
 	}
 }
