@@ -67,31 +67,40 @@ namespace Awesome.Web.Api.Services
 					context.Transactions.Add(transaction);
 
 					// Step 3 - Create the CustomerRequest while sending the Purchase information to SendInBlue
-					var customerRequest = new CustomerRequest
+					try
 					{
-						CustomerId = customer.CustomerId,
-						RequestedAt = DateTime.UtcNow,
-						RequestType = RequestType.MakingTheBigMoveFullBook,
-					};
+						var customerRequest = new CustomerRequest
+						{
+							CustomerId = customer.CustomerId,
+							RequestedAt = DateTime.UtcNow,
+							RequestType = RequestType.MakingTheBigMoveFullBook,
+						};
 
-					var sendInBlue = new SendInBlue(ConfigurationManager.AppSettings["SendInBlue.ApiKey"].ToString());
-					var fullName = $"{customer.FirstName ?? string.Empty} {customer.LastName ?? string.Empty}";
-					var apiResult = sendInBlue.AddUserToAwesomeWebList(fullName, customer.Email, (int)SendInBlueList.MTBMBookPurchasers);
+						var sendInBlue = new SendInBlue(ConfigurationManager.AppSettings["SendInBlue.ApiKey"].ToString());
+						var fullName = $"{customer.FirstName ?? string.Empty} {customer.LastName ?? string.Empty}";
+						var apiResult = sendInBlue.AddUserToAwesomeWebList(fullName, customer.Email, (int)SendInBlueList.MTBMBookPurchasers);
 
-					customerRequest.ApiCode = apiResult.code;
+						customerRequest.ApiCode = apiResult.code;
 
-					customerRequest.ApiMessage = apiResult.message;
+						customerRequest.ApiMessage = apiResult.message;
 
-					if (apiResult?.code == "success")
-					{
-						customerRequest.ApiStatus = $"Successfully added to the Purchasers list (ID: {(int)SendInBlueList.MTBMBookPurchasers})";
+						if (apiResult?.code == "success")
+						{
+							customerRequest.ApiStatus = $"Successfully added to the Purchasers list (ID: {(int)SendInBlueList.MTBMBookPurchasers})";
+						}
+						else
+						{
+							customerRequest.ApiStatus = $"There were problems adding the user to the Purchasers list (ID: {(int)SendInBlueList.MTBMBookPurchasers})";
+						}
+
+						context.CustomerRequest.Add(customerRequest);
 					}
-					else
+					catch (Exception e)
 					{
-						customerRequest.ApiStatus = $"There were problems adding the user to the Purchasers list (ID: {(int)SendInBlueList.MTBMBookPurchasers})";
+						_logger.Error(e, "There was an error calling SendInBlue to add the Customer to the list");
 					}
 
-					context.CustomerRequest.Add(customerRequest);
+					
 
 					await context.SaveChangesAsync();
 				}

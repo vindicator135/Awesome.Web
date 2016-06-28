@@ -1,4 +1,5 @@
 ﻿using Awesome.Entities;
+using NLog;
 using System.Data.Entity.Infrastructure;
 
 namespace Awesome.Web.Api.Services
@@ -6,6 +7,8 @@ namespace Awesome.Web.Api.Services
 	public abstract class BaseService : IAwesomeContext
 	{
 		private IDbContextFactory<AwesomeEntities> factory;
+
+		protected Logger _logger = LogManager.GetLogger("AwesomeWeb");
 
 		private AwesomeEntities _context;
 
