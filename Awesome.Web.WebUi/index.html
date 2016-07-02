@@ -2,7 +2,7 @@
 <html class="no-js" lang="en" ng-app="AwesomeWeb">
 <head>
 	<title>A Journey To Awesome</title>
-	<meta name="description" content="A Journey To Awesome - a blog for migration, overseas employment, and motivition for pushing the dream abroad">
+	<meta name="description" content="Keeping the Motivation, Inspiration and Thoughts to turn the dream life abroad a steady reality">
 	<meta name="keywords" content="migration,australia,canada,skilled,ielts,motivation,toefl,pte,usa,uk,ofw,overseas,student,foreign,motivation,inspiration,tips">
 	<meta charset="utf-8">
 	<meta name="author" content="Stephen Cate">
@@ -49,10 +49,28 @@
 	<link href="css/custom/site.css" rel="stylesheet" />
 
 	<base href="/">
+	<!-- Facebook Pixel Code -->
+	<script>
+		!function (f, b, e, v, n, t, s) {
+			if (f.fbq) return; n = f.fbq = function () {
+				n.callMethod ?
+				n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			}; if (!f._fbq) f._fbq = n;
+			n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+			t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+		}(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+		fbq('init', '262977374069140');
+		fbq('track', "PageView");
+
+	</script>
+	<noscript>
+		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=262977374069140&ev=PageView&noscript=1" />
+	</noscript>
+	<!-- End Facebook Pixel Code -->
 </head>
 <body ng-controller="MainAppCtrl">
 	<!-- navigation panel -->
-	
 	<!--end navigation panel -->
 	<!-- head section -->
 	<nav class="navbar navbar-default navbar-fixed-top nav-transparent overlay-nav sticky-nav nav-border-bottom no-transition" role="navigation">
@@ -86,9 +104,7 @@
 
 	</ui-view>
 	<!-- slider -->
-
 	<!-- end content section -->
-
 	<!-- end footer -->
 	<!-- javascript libraries / javascript files set #1 -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
@@ -141,15 +157,15 @@
 	<script src="js/underscore-min.js"></script>
 	<script src="js/ngstorage.min.js"></script>
 	<script src="js/moment.min.js"></script>
-	
+
 	<!-- ui.bootstrap-->
 	<script src="js/angular-ui-bootstrap/src/position/position.js"></script>
 	<script src="js/angular-ui-bootstrap/src/stackedMap/stackedMap.js"></script>
 	<script src="js/angular-ui-bootstrap/src/modal/modal.js"></script>
-	
+
 	<script src="js/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
 	<script src="js/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
-	
+
 
 	<!-- Angular: Application scripts-->
 	<script src="app/app.ng.js"></script>
