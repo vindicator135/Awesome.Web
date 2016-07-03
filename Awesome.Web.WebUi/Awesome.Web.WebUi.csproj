@@ -58,6 +58,7 @@
     <Content Include="images\custom\book-splash-1920x207.png" />
     <Content Include="images\custom\book-splash-325x386.png" />
     <Content Include="images\custom\book-splash-amazon-1920x1080.png" />
+    <Content Include="images\custom\book-splash-download-1920x207.png" />
     <Content Include="images\custom\main-logo-300x102-gray.png" />
     <Content Include="images\posts\author-300x300.jpg" />
     <Content Include="images\posts\cruisecontrol-1920x1200.png" />
@@ -312,12 +313,6 @@
     <Content Include="js\angular-ui-bootstrap\src\typeahead\docs\readme.md" />
     <None Include="Properties\PublishProfiles\ajourneytoawesome.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ajourneytoawesome.com - Local.pubxml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.ng.js" />
