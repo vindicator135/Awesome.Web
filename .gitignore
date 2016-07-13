@@ -70,3 +70,6 @@
 /Awesome.Web.Api/obj
 /Awesome.Web.Api/Awesome.Web
 /Awesome.Web.WebUi/bin
+/packages
+/Awesome.Web.WebUi/obj/Debug
+/Awesome.Web.WebUi/obj/Release/CSAutoParameterize

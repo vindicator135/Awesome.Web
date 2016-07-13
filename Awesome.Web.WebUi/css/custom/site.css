@@ -31,6 +31,10 @@ Table of contents
 	content: " ";
 }
 
+.modal-body {
+	background-image: url('../../images/custom/book-splash-325x386-faded.png');
+}
+
 .slider-text {
 	top: 250px;
 }

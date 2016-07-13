@@ -50,25 +50,37 @@
     <Content Include="app\book\views\making-the-big-move.ng.html" />
     <Content Include="app\book\views\thank-you.ng.html" />
     <Content Include="app\controllers\errorController.ng.js" />
+    <Content Include="app\popups\subscribe-popup\subscribePopupCtrl.ng.js" />
+    <Content Include="app\popups\subscribe-popup\subscribe-popup.component.ng.js" />
+    <Content Include="app\popups\subscribe-popup\subscribe-popup.ng.html" />
     <Content Include="app\services\marketingService.ng.js" />
     <Content Include="app\services\tagService.ng.js" />
     <Content Include="app\views\errors.ng.html" />
     <Content Include="css\custom\site.css" />
     <Content Include="images\custom\book-splash-1920x1080.png" />
     <Content Include="images\custom\book-splash-1920x207.png" />
+    <Content Include="images\custom\book-splash-325x386-faded.png" />
     <Content Include="images\custom\book-splash-325x386.png" />
     <Content Include="images\custom\book-splash-amazon-1920x1080.png" />
     <Content Include="images\custom\book-splash-download-1920x207.png" />
+    <Content Include="images\custom\book-splash-download-2-buttons-1920x207.png" />
+    <Content Include="images\custom\book-splash-download-3-buttons-1920x207.png" />
+    <Content Include="images\custom\book-splash-download-blue-1920x207.png" />
     <Content Include="images\custom\main-logo-300x102-gray.png" />
+    <Content Include="images\posts\91H-1920x1280.jpg" />
     <Content Include="images\posts\author-300x300.jpg" />
     <Content Include="images\posts\cruisecontrol-1920x1200.png" />
+    <Content Include="images\posts\euro-coins-close-up-picjumbo-com_1920x1280.jpg" />
+    <Content Include="images\posts\euro-coins-close-up-picjumbo-com_480x320.jpg" />
     <Content Include="images\posts\footprint-1920x1200.png" />
     <Content Include="images\posts\ielts-480x358.png" />
+    <Content Include="images\posts\motivation-rocky-balboa-winner-pose-picjumbo-com-1920x1280.jpg" />
     <Content Include="images\posts\nothing-to-lose-1920x1280.jpg" />
     <Content Include="images\posts\on-a-mission-1920x1280.jpg" />
     <Content Include="images\posts\on-a-mission-480x358.jpg" />
     <Content Include="images\posts\Passport-1920x1200.png" />
     <Content Include="images\posts\Passport-480x358.png" />
+    <Content Include="images\posts\payslip-1024x704.jpg" />
     <Content Include="images\posts\you-are-blessed-1920x1280.jpg" />
     <Content Include="js\angular-ui-bootstrap\dist\ui-bootstrap-csp.css" />
     <Content Include="js\angular-ui-bootstrap\dist\ui-bootstrap-tpls.js" />
@@ -311,7 +323,10 @@
     <Content Include="js\angular-ui-bootstrap\src\timepicker\docs\readme.md" />
     <Content Include="js\angular-ui-bootstrap\src\tooltip\docs\readme.md" />
     <Content Include="js\angular-ui-bootstrap\src\typeahead\docs\readme.md" />
-    <None Include="Properties\PublishProfiles\ajourneytoawesome.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ajourneytoawesome.com - Web Deploy New.pubxml" />
+    <None Include="Properties\PublishProfiles\ajourneytoawesome.com - Web Deploy.pubxml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\PublishProfiles\ajourneytoawesome.com - Local.pubxml" />
   </ItemGroup>
   <ItemGroup>

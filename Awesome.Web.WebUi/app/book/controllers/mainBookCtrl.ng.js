@@ -1,4 +1,4 @@
-﻿angular.module("AwesomeWeb").controller("MainBookCtrl", function ($scope, $stateParams, $state, $uibModal, $log, $window, marketingService) {
+﻿angular. module("AwesomeWeb").controller("MainBookCtrl", function ($scope, $stateParams, $state, $uibModal, $log, $window, marketingService,  $anchorScroll) {
 	$scope.userEmail;
 	$scope.submitted = false;
 	$scope.showMainOptions = true;
@@ -28,8 +28,6 @@
 		else {
 			$scope.submitted = true;
 		}
-			 
-		
 	};
 
 	$scope.validateEmail = function () {
@@ -58,4 +56,6 @@
 		$scope.showBuyingOptionsSection = false;
 		$scope.showFreeExcerptSection = true;
 	}
+
+	$anchorScroll();
 });
