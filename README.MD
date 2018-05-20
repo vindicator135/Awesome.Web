@@ -1,1 +1,22 @@
 Sharing is caring...
+
+# Awesome.Web
+### This is a blog site that I've built in early 2016 to brush up my web programming chops. More of a learning exercise than an enterprise-grade app, there's some good tid bits that can be plucked out of the site. Feel free to rescheme, relaunch, use and abuse this base code to suit your needs (no guarantees and warranties of course!). 
+
+## Features
+* Stateless-front end using a Bootstrap 3 theme.
+* Restful web service (trying) to follow RESTful API conventions
+* Token-based authentication
+* Online payment support via **PayPal** integration
+* Marketing/workflow support via **Send-in-blue** integration
+* Data management and persistence using MS SQL with data migrations
+
+
+## Technical Sumary
+This is a RESTful website. Front-end is made of AngularJS (v1.4). Back-end is Web API.
+
+## Tech Used
+
+
+
+
