@@ -1,7 +1,10 @@
 Sharing is caring...
 
 # Awesome.Web
-### This is a blog site that I've built in early 2016 to brush up my web programming chops. More of a learning exercise than an enterprise-grade app, there's some good tid bits that can be plucked out of the site. Feel free to rescheme, relaunch, use and abuse this base code to suit your needs (no guarantees and warranties of course!). 
+
+## Summary
+
+### Awesome.Web is a blog site that I've built in early 2016 to brush up my web programming chops. This is more of a learning exercise than an enterprise-grade app. Still I think there's some good tid bits that can be plucked out of the site. Feel free to rescheme, relaunch, use and abuse this base code to suit your needs (no guarantees and warranties of course!). 
 
 ## Features
 * Stateless-front end using a Bootstrap 3 theme.
