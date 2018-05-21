@@ -4,11 +4,11 @@ Sharing is caring...
 
 ## Summary
 
-### Awesome.Web is a blog site that I've built in early 2016 to brush up my web programming chops. This is more of a learning exercise than an enterprise-grade app. Still I think there's some good tid bits that can be plucked out of the site. Feel free to rescheme, relaunch, use and abuse this base code to suit your needs (no guarantees and warranties of course!). 
+### **Awesome.Web** is a blog site that I've built in early 2016 to brush up my web programming chops. This is more of a learning exercise than an enterprise-grade app. Still I think there are some good bits that can be plucked out of application code. Feel free to re-skin, re-launch, use-and-abuse this base code to suit your needs (no guarantees and warranties of course!). 
 
 ## Features
 * Stateless-front end using a Bootstrap 3 theme.
-* Restful web service (trying) to follow RESTful API conventions
+* RESTful web service following RESTful API conventions
 * Token-based authentication
 * Online payment support via **PayPal** integration
 * Marketing/workflow support via **Send-in-blue** integration
