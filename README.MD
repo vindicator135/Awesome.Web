@@ -34,8 +34,11 @@ _* Tech used: EF6, C# *_
 ## Running Awesome.Web
 
 1. Open the solution file `Awesome.Web.sln`
-2. Build the solution
-3. 
+2. Set the start-up projects
+  1. Right click on the solution
+  2. Select 'Set Startup Projects'..
+  3. On the dialog, select 'Multiple startup projects'
+  4. Select Awesome.Web.Api, 
 
 1. Host Awesome.Web.Ui in IIS as a website 
 
