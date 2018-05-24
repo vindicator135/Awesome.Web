@@ -40,9 +40,9 @@ To get the website up and running requires some basic Configuration first of som
 1. Open the solution file `Awesome.Web.sln`
 
 2. Set the database you will hook up to the website by updating the database details for `DefaultConnection` in following config files -
-* \Awesome.Entities\App.config
-* \Awesome.Web.Api\Web.config
-*You need to update the connection string in these locations with your DB Server, DB User credential, DB name. The DB name you specify here does NOT need to exist. It will be automatically created with the schema needed in the first API request you'll make.* 
+* *\Awesome.Entities\App.config*
+* *\Awesome.Web.Api\Web.config*
+* You need to update the connection string in these locations with your DB Server, DB User credential, DB name. The DB name you specify here does NOT need to exist. It will be automatically created with the schema needed in the first API request you'll make.* 
  
 3. Set *Awesome.Web.Api* as the start-up project.
 
@@ -57,7 +57,7 @@ The project is setup to create the database and all related schema (if it doesn'
 1. Run the *Awesome.Web.Api*
 
 2. Using POSTMAN (or a RESTful tool), send a request to create an application user. This will create an account that can be used later to get authentication TOKENs to serve the API calls of the Front-end website:
-'''javascript
+```javascript
 [POST] http://localhost/Awesome.Web.Api/api/Account/Register
 {
   {
@@ -67,13 +67,13 @@ The project is setup to create the database and all related schema (if it doesn'
   "ConfirmPassword": "User_Password123"
   }
 }
-'''
+```
 
 #### Launching the Front-end
 
 All front-end code sits on the project *Awesome.Web.WebUi*. There's just a few steps to get it up and running.
 
-1. Update the project-settings in `Awesome.Web.WebUi\app\app.ng.js` for `apiCredentials` and `apiBaseUrl` with the application user from bootstrapping the back-end, and the configured local IIS site.
+1. Update the project-settings in `Awesome.Web.WebUi\app\app.ng.js` for `apiCredentials` and `apiBaseUrl` with the application user created from bootstrapping the back-end, and the configured local IIS site's URL.
 ```javascript
 ...
 angular.module('AwesomeWeb').constant('config', {
