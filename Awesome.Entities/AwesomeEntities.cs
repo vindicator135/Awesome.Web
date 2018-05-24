@@ -10,7 +10,7 @@ namespace Awesome.Entities
 		public AwesomeEntities(string nameOrConnectionString) :
 			base(nameOrConnectionString)
 		{
-			// Database.SetInitializer<AwesomeEntities>(new DropCreateDatabaseIfModelChangesInitializer());
+			Database.SetInitializer<AwesomeEntities>(new DropCreateDatabaseIfModelChangesInitializer());
 		}
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)

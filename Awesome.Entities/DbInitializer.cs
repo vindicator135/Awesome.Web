@@ -19,11 +19,11 @@ namespace Awesome.Entities
 		public static void Seed(AwesomeEntities context)
 		{
 
-			var user = new ApplicationUser { UserName = "Stephen Cate", Email = "vindicator135@gmail.com" };
+			var user = new ApplicationUser { UserName = "User", Email = "some@email.com" };
 
 			var userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
 
-			var userResult = userManager.CreateAsync(user, "Unknown_123").Result;
+			var userResult = userManager.CreateAsync(user, "User_Password123").Result;
 
 			context.SaveChanges();
 

@@ -1,9 +1,9 @@
 ﻿angular.module('AwesomeWeb', ['ui.router', 'ngSanitize', 'ngStorage', 'ui.bootstrap']);
 
 angular.module('AwesomeWeb').constant('config', {
-	apiCredentials: 'userName=Stephen Cate&password=Unknown_123&grant_type=password',
-	apiBaseUrl: 'http://services.ajourneytoawesome.com'
-});//http://services.ajourneytoawesome.com,http://localhost/AwesomeWeb
+    apiCredentials: 'userName=User1&password=User1_Password123&grant_type=password',
+	apiBaseUrl: 'http://localhost/Awesome.Web.Api'
+});
 
 angular.module('AwesomeWeb').run(['$rootScope', '$state', function ($rootScope, $state) {
 
