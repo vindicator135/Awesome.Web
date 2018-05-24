@@ -31,20 +31,61 @@ _* Tech used: WebApi, C# *_
 #### Awesome.Web.Entities
 _* Tech used: EF6, C# *_
 
-## Running Awesome.Web
+## Setting-up and running Awesome.Web
+
+To get the website up and running requires some basic Configuration first of some application settings including hosting in the local environment (aka Local IIS). 
+
+#### Configuration
 
 1. Open the solution file `Awesome.Web.sln`
-2. Set the solution to start-up on the following projects:
-* Awesome.Web.Api
-* Awesome.Web.WebUi
-3. Set the database you will hook up to the website by updating the database details for `DefaultConnection` in following config files -
+
+2. Set the database you will hook up to the website by updating the database details for `DefaultConnection` in following config files -
 * \Awesome.Entities\App.config
 * \Awesome.Web.Api\Web.config
-4. Configure *Awesome.Web.Api* and *Awesome.Web.WebUi* to run on the Local IIS -
-For example say -
+*You need to update the connection string in these locations with your DB Server, DB User credential, DB name. The DB name you specify here does NOT need to exist. It will be automatically created with the schema needed in the first API request you'll make.* 
+ 
+3. Set *Awesome.Web.Api* as the start-up project.
+
+4. Configure *Awesome.Web.Api* and *Awesome.Web.WebUi* to run on Local IIS -
 * Awesome.Web.Api -> http://localhost/Awesome.Web.Api
 * Awesome.Web.WebUi -> http://locallhost/Awesome.Web.WebUi
-5. Build and run the solution.
+
+#### Bootstrapping the Back-end
+
+The project is setup to create the database and all related schema (if it doesn't exists yet). This happens when the first request is received. To send the first request and kick off the backend is straightforward.
+
+1. Run the *Awesome.Web.Api*
+
+2. Using POSTMAN (or a RESTful tool), send a request to create an application user. This will create an account that can be used later to get authentication TOKENs to serve the API calls of the Front-end website:
+'''javascript
+[POST] http://localhost/Awesome.Web.Api/api/Account/Register
+{
+  {
+  "Email": "user@email.com",
+  "UserName": "UserName",
+  "Password": "User_Password123",
+  "ConfirmPassword": "User_Password123"
+  }
+}
+'''
+
+#### Launching the Front-end
+
+All front-end code sits on the project *Awesome.Web.WebUi*. There's just a few steps to get it up and running.
+
+1. Update the project-settings in `Awesome.Web.WebUi\app\app.ng.js` for `apiCredentials` and `apiBaseUrl` with the application user from bootstrapping the back-end, and the configured local IIS site.
+```javascript
+...
+angular.module('AwesomeWeb').constant('config', {
+	apiCredentials: 'userName=UserName&password=User_Password123&grant_type=password',
+	apiBaseUrl: 'http://localhost/AwesomeWeb'
+});
+...
+```
+
+2. Publish *Awesome.Web.WebUi* into the Local IIS site (i.e. http://localhost/Awesome.Web.WebUi).
+
+3. Browse and see Awesome.Web come to life!
 
 
 
