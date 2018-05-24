@@ -1,41 +1,36 @@
 # Awesome.Web
 
 ## About 
-**Awesome.Web** is a blog site that I've built in early 2016 to brush up my web programming chops. This is more of a learning exercise than an enterprise-grade app. Still I think there are some good bits that can be plucked out of the application code. Feel free to re-skin, re-launch, use-and-abuse this base code to suit your needs (no guarantees and warranties of course!). 
+**Awesome.Web** is a blog site that I've built in early 2016  to go with my book project. More of a learning exercise than an enterprise-grade app, thought I'd share it as there are some good bits that can be plucked out of the application code. Feel free to re-skin, re-launch, use-and-abuse this base code to suit your needs (no guarantees and warranties of course!). 
 
 ## Features
 * Stateless-front end using a Bootstrap 3 theme.
-* RESTful web service following RESTful API conventions
+* RESTful endpoints following RESTful API conventions
 * Token-based authentication for all RESTful calls
 * Online payment support via **PayPal** integration
 * Marketing/workflow support via **Send-in-blue** integration
 * Data management and persistence using MS SQL with Data Migrations
 
 ## Getting Started
-Before getting right to it, I'd like to note that to get the most of this code - setting it up and have it running - you would need a level of familiarity with AngularJs, Javascript and C#. That said, let's get right to it.
+Before getting right to it, I'd say that to get the most of this code - setting it up and have it running - you would need a level of familiarity with AngularJs, Javascript and C#. If you're looking to just learn programming from scratch, this isn't a comfortable place to start. That said, let's get right to it.
 
 This repository could be opened in Visual Studio 2015 and above. The solution is composed of three projects:
 * Awesome.Web.WebUi
 * Awesome.Web.Api
 * Awesome.Entities
 
-**Awesome.Web** is a RESTful website and as such, there are two general aspects to it - a **Front-end** and **Back-end**. Here's how the three projects in the solutions are grouped:
+**Awesome.Web** is a RESTful website and as such, there are two general aspects to it - a **Front-end** and **Back-end**. Here's how the three projects in the solutions are grouped -
 
-### Front-end
-#### Awesome.Web.WebUi
-_* Tech Used: AngularJs, Javascript, CSS (Boostrap 3), Html *_
-
-### Back-end
-#### Awesome.Web.Api
-_* Tech used: WebApi, C# *_
-#### Awesome.Web.Entities
-_* Tech used: EF6, C# *_
+| **Project** | **Front-end/Back-end** | **Tech used** |
+| Awesome.Web.WebUi | Front-end | AngularJs, Javascript, CSS (Boostrap 3), Html |
+| Awesome.Web.Api | Back-end | WebApi, C# |
+| Awesome.Entites | Back-end | EF6, C# |
 
 ## Setting-up and running Awesome.Web
 
-To get the website up and running requires some basic Configuration first of some application settings including hosting in the local environment (aka Local IIS). 
+To get the website up and running requires some basic **1. Configuration** first of some application settings including hosting in the local environment (aka Local IIS). Then, we need to **2. Bootstrap the back-end** to kick-off the data persistence and the APIs that will serve the web site data. And last, we will see the lights on **3. Launching the Front-end**
 
-#### Configuration
+#### 1. Configuration
 
 1. Open the solution file `Awesome.Web.sln`
 
@@ -46,11 +41,13 @@ To get the website up and running requires some basic Configuration first of som
  
 3. Set *Awesome.Web.Api* as the start-up project.
 
-4. Configure *Awesome.Web.Api* and *Awesome.Web.WebUi* to run on Local IIS -
+4. Configure *Awesome.Web.Api* to run on Local IIS -
 * Awesome.Web.Api -> http://localhost/Awesome.Web.Api
-* Awesome.Web.WebUi -> http://locallhost/Awesome.Web.WebUi
 
-#### Bootstrapping the Back-end
+5. Configure *Awesome.Web.WebUi* to run on a website (outside the `Default Web Site`) on Local IIS 
+* Awesome.Web.WebUi -> http://locallhost:8001/Awesome.Web.WebUi
+
+#### 2. Bootstrapping the Back-end
 
 The project is setup to create the database and all related schema (if it doesn't exists yet). This happens when the first request is received. To send the first request and kick off the backend is straightforward.
 
@@ -62,14 +59,14 @@ The project is setup to create the database and all related schema (if it doesn'
 {
   {
   "Email": "user@email.com",
-  "UserName": "UserName",
-  "Password": "User_Password123",
-  "ConfirmPassword": "User_Password123"
+  "UserName": "User1",
+  "Password": "User1_Password123",
+  "ConfirmPassword": "User1_Password123"
   }
 }
 ```
 
-#### Launching the Front-end
+#### 3. Launching the Front-end
 
 All front-end code sits on the project *Awesome.Web.WebUi*. There's just a few steps to get it up and running.
 
@@ -77,15 +74,15 @@ All front-end code sits on the project *Awesome.Web.WebUi*. There's just a few s
 ```javascript
 ...
 angular.module('AwesomeWeb').constant('config', {
-	apiCredentials: 'userName=UserName&password=User_Password123&grant_type=password',
-	apiBaseUrl: 'http://localhost/AwesomeWeb'
+	apiCredentials: 'userName=User1&password=User1_Password123&grant_type=password',
+	apiBaseUrl: 'http://localhost/Awesome.Web.Api'
 });
 ...
 ```
 
 2. Publish *Awesome.Web.WebUi* into the Local IIS site (i.e. http://localhost/Awesome.Web.WebUi).
 
-3. Browse and see Awesome.Web come to life!
+3. Browse and see Awesome.Web come to life!!!
 
 
 
