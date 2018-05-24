@@ -12,16 +12,12 @@
 * Data management and persistence using MS SQL with Data Migrations
 
 ## Getting Started
-Before getting right to it, I'd say that to get the most of this code - setting it up and have it running - you would need a level of familiarity with AngularJs, Javascript and C#. If you're looking to just learn programming from scratch, this isn't a comfortable place to start. That said, let's get right to it.
-
-This repository could be opened in Visual Studio 2015 and above. The solution is composed of three projects:
-* Awesome.Web.WebUi
-* Awesome.Web.Api
-* Awesome.Entities
+Before getting right to it, I'd say that to get the most of this code - setting it up and have it running - you would need a level of familiarity with AngularJs, Javascript and C#. If you're looking to learn programming from scratch, this isn't a comfortable place to start. That said, let's get right to it!
 
 **Awesome.Web** is a RESTful website and as such, there are two general aspects to it - a **Front-end** and **Back-end**. Here's how the three projects in the solutions are grouped -
 
-| **Project** | **Front-end/Back-end** | **Tech used** |
+| Project | Front-end/Back-end | Tech used |
+| ------------------- | ----------- | ----------------------------------------------|
 | Awesome.Web.WebUi | Front-end | AngularJs, Javascript, CSS (Boostrap 3), Html |
 | Awesome.Web.Api | Back-end | WebApi, C# |
 | Awesome.Entites | Back-end | EF6, C# |
