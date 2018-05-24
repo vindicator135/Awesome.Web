@@ -34,15 +34,17 @@ _* Tech used: EF6, C# *_
 ## Running Awesome.Web
 
 1. Open the solution file `Awesome.Web.sln`
-2. Set the start-up projects
-  1. Right click on the solution
-  2. Select 'Set Startup Projects'..
-  3. On the dialog, select 'Multiple startup projects'
-  4. Select Awesome.Web.Api, 
-
-1. Host Awesome.Web.Ui in IIS as a website 
-
-2. Host Awesome.Web.Api in IIS as a website
+2. Set the solution to start-up on the following projects:
+* Awesome.Web.Api
+* Awesome.Web.WebUi
+3. Set the database you will hook up to the website by updating the database details for `DefaultConnection` in following config files -
+* \Awesome.Entities\App.config
+* \Awesome.Web.Api\Web.config
+4. Configure *Awesome.Web.Api* and *Awesome.Web.WebUi* to run on the Local IIS -
+For example say -
+* Awesome.Web.Api -> http://localhost/Awesome.Web.Api
+* Awesome.Web.WebUi -> http://locallhost/Awesome.Web.WebUi
+5. Build and run the solution.
 
 
 
