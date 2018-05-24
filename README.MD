@@ -4,12 +4,19 @@
 **Awesome.Web** is a blog site that I've built in early 2016  to go with my book project. More of a learning exercise than an enterprise-grade app, thought I'd share it as there are some good bits that can be plucked out of the application code. Feel free to re-skin, re-launch, use-and-abuse this base code to suit your needs (no guarantees and warranties of course!). 
 
 ## Features
+* Single page architecture with no page refresh/redirects through Angular routing
 * Stateless-front end using a Bootstrap 3 theme.
 * RESTful endpoints following RESTful API conventions
 * Token-based authentication for all RESTful calls
 * Online payment support via **PayPal** integration
 * Marketing/workflow support via **Send-in-blue** integration
 * Data management and persistence using MS SQL with Data Migrations
+
+### On Mobile Device - Home Screen
+![Home Screen](https://github.com/vindicator135/Awesome.Web/blob/master/AwesomeWeb.png)
+
+### On Mobile Device - Book Splash Screen
+![Splash Screen](https://github.com/vindicator135/Awesome.Web/blob/master/AwesomeWeb1.png)
 
 ## Getting Started
 Before getting right to it, I'd say that to get the most of this code - setting it up and have it running - you would need a level of familiarity with AngularJs, Javascript and C#. If you're looking to learn programming from scratch, this isn't a comfortable place to start. That said, let's get right to it!
