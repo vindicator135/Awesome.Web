@@ -61,6 +61,9 @@ The project is setup to create the database and all related schema (if it doesn'
 
 2. Using POSTMAN (or a RESTful tool), send a request to create an application user. This will create an account that can be used later to get authentication TOKENs to serve the API calls of the Front-end website:
 ```javascript
+
+REQUEST
+
 [POST] http://localhost/Awesome.Web.Api/api/Account/Register
 {
   {
@@ -70,6 +73,10 @@ The project is setup to create the database and all related schema (if it doesn'
   "ConfirmPassword": "User1_Password123"
   }
 }
+
+RESPONSE
+
+
 ```
 
 #### 3. Launching the Front-end
