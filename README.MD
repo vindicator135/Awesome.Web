@@ -31,7 +31,10 @@ Before getting right to it, I'd say that to get the most of this code - setting 
 
 ## Setting-up and running Awesome.Web
 
-To get the website up and running requires some basic **1. Configuration** first of some application settings including hosting in the local environment (aka Local IIS). Then, we need to **2. Bootstrap the back-end** to kick-off the data persistence and the APIs that will serve the web site data. And last, we will see the lights on **3. Launching the Front-end**
+To get the website up and running requires three steps - 
+* **1. Configuration** of some application settings including hosting in the local environment (aka Local IIS). Then, we need to 
+* **2. Bootstrap the back-end** to kick-off the data persistence and the APIs that will serve the web site data. And last, 
+* we will see the lights on by **3. Launching the Front-end**
 
 #### 1. Configuration
 
