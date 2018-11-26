@@ -75,3 +75,10 @@
 /Awesome.Web.Api/bin/*.pdb
 /Awesome.Web.Api/bin/*.dll
 *.csproj.user
+\.vs/Awesome\.Web/v15/Server/sqlite3/db\.lock
+
+\.vs/Awesome\.Web/v15/Server/sqlite3/storage\.ide
+
+\.vs/Awesome\.Web/v15/Server/sqlite3/storage\.ide-shm
+
+\.vs/Awesome\.Web/v15/Server/sqlite3/storage\.ide-wal

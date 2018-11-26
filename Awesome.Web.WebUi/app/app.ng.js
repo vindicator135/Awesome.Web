@@ -1,7 +1,7 @@
 ﻿angular.module('AwesomeWeb', ['ui.router', 'ngSanitize', 'ngStorage', 'ui.bootstrap']);
 
 angular.module('AwesomeWeb').constant('config', {
-    apiCredentials: 'userName=User1&password=User1_Password123&grant_type=password',
+    apiCredentials: 'userName=Stephen Cate&password=Unknown_123&grant_type=password',
 	apiBaseUrl: 'http://localhost/Awesome.Web.Api'
 });
 

@@ -15,10 +15,12 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Awesome.Web.Api.Results;
 using Awesome.Entities.Entities;
+using System.Web.Http.Cors;
 
 namespace Awesome.Web.Api.Controllers
 {
-	[Authorize]
+    [EnableCors(origins: "http://localhost:1999", headers: "*", methods: "*")]
+    [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : BaseController
     {
